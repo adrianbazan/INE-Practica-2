@@ -1,0 +1,90 @@
+pro_rails_ecommerce_1:
+  id: 1
+  title: Pro Rails E-Commerce
+  producer_id: 1
+  produced_at: <%= Time.now.strftime("%Y-%m-%d") %>
+  price: 45.0
+  cod: 1234567890111
+  blurb: describe1
+  duration: 10
+pro_rails_ecommerce_2:
+  id: 2
+  title: Pro Rails E-Commerce 2nd Edition
+  producer_id: 1
+  produced_at: <%= Time.now.strftime("%Y-%m-%d") %>
+  price: 65
+  cod: 1234567890222
+  blurb: describe2
+  duration: 10
+pro_rails_ecommerce_3:
+  id: 3
+  title: Pro Rails E-Commerce 3rd Edition
+  producer_id: 1
+  produced_at: <%= Time.now.strftime("%Y-%m-%d") %>
+  price: 85
+  cod: 1234567890333
+  blurb: describe3
+  duration: 10
+pro_rails_ecommerce_4:
+  id: 4
+  title: Pro Rails E-Commerce 4th Edition
+  producer_id: 1
+  produced_at: <%= Time.now.strftime("%Y-%m-%d") %>
+  price: 105
+  cod: 1234567890444
+  blurb: describe4
+  duration: 10
+pro_rails_ecommerce_5:
+  id: 5
+  title: Pro Rails E-Commerce 5th Edition
+  producer_id: 1
+  produced_at: <%= Time.now.strftime("%Y-%m-%d") %>
+  price: 125
+  cod: 1234567890555
+  blurb: describe5
+  duration: 10
+pro_rails_ecommerce_6:
+  id: 6
+  title: Pro Rails E-Commerce 6th Edition
+  producer_id: 1
+  produced_at: <%= Time.now.strftime("%Y-%m-%d") %>
+  price: 145
+  cod: 1234567890666
+  blurb: describe6
+  duration: 10
+pro_rails_ecommerce_7:
+  id: 7
+  title: Pro Rails E-Commerce 7th Edition
+  producer_id: 2
+  produced_at: <%= Time.now.strftime("%Y-%m-%d") %>
+  price: 165
+  cod: 1234567890777
+  blurb: describe7
+  duration: 10
+ruby_for_dummies_8:
+  id: 8
+  title: Ruby for Dummies
+  producer_id: 1
+  produced_at: <%= Time.now.strftime("%Y-%m-%d") %>
+  price: 185
+  cod: 1234567890888
+  blurb: describe8
+  duration: 10
+pride_and_prejudice_9:
+  id: 9
+  title: Pride and Prejudice
+  producer_id: 2
+  produced_at: <%= Time.now.strftime("%Y-%m-%d") %>
+  price: 40
+  cod: 1234567890999
+  blurb: describe9
+  duration: 10
+the_idiot_10:
+  id: 10
+  title: The Idiot
+  producer_id: 2
+  produced_at: <%= Time.now.strftime("%Y-%m-%d") %>
+  price: 40
+  cod: 1234567890000
+  blurb: describe10
+  duration: 10
