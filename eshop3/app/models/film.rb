@@ -30,7 +30,8 @@ class Film < ActiveRecord::Base
 	validates_numericality_of :duration, :only_integer => true
 	validates_numericality_of :price
 	validates_presence_of :cod
-	validates_format_of :cod, :with => /[0-9\-xX]{13}/
+  	validates_length_of :cod, :in => 1..3
+	validates_format_of :cod, :with => /[0-9]{3}/
 	validates_uniqueness_of :cod
 
 	def director_names
