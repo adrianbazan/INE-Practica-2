@@ -1,6 +1,6 @@
 <% if @film.errors.any? %>
   <div id="errorExplanation">
-  <h2><%= pluralize(@film.errors.count, "error") %> prohibieron que esta película haya sido guardada:</h2>
+  <h2><%= pluralize(@film.errors.count, "error", "errores") %> prohibieron que esta película haya sido guardada:</h2>
     <ul>
       <% @film.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>

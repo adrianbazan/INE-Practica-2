@@ -20,8 +20,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-	activerecord:
-		attributes:
-			director:
-				first_name: "Nombre"
-				last_name : "Apellidos"
+  activerecord:
+    attributes:
+      film:
+        cover_image: "Imagen de portada"
+#en:
+#  hello: "Hello world"
