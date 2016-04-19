@@ -19,6 +19,6 @@
 <% end %>
 </table>
 <br/>
-<%= will_paginate @films, :page_links => true, :link_separator => ' | ',
+<%= will_paginate @films, :page_links => false, :link_separator => ' | ',
                           :previous_label => 'Página Anterior', :next_label => 'Página Siguiente' %>
 <p><%= link_to 'Añadir una película', :action => 'new' %></p>

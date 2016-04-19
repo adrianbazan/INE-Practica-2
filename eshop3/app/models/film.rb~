@@ -20,7 +20,7 @@ class Film < ActiveRecord::Base
 	#has_many :cart_items
 	#has_many :carts, :through => :cart_items
 
-	has_attached_file :cover_image, :styles => { :medium =>"300x300>", :thumb => "200X135>" }
+	has_attached_file :cover_image, :styles => { :medium =>"300x300>", :thumb => "270x400>" }
 	validates_attachment :cover_image, :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"] }
 
 	validates_length_of :title, :in => 1..255
@@ -30,6 +30,7 @@ class Film < ActiveRecord::Base
 	validates_numericality_of :duration, :only_integer => true
 	validates_numericality_of :price
 	validates_presence_of :cod
+  	validates_length_of :cod, :in => 1..13
 	validates_format_of :cod, :with => /[0-9\-xX]{13}/
 	validates_uniqueness_of :cod
 
