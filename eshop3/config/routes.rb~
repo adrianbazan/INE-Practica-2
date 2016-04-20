@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  root :to => 'about#index'
+  #root :to => 'about#index'
+  root :to => 'catalog#index'	
 
   get 'about' => 'about#index'
   get 'checkout' => 'checkout#index'
