@@ -85,6 +85,6 @@ the_idiot_10:
   producer_id: 2
   produced_at: <%= Time.now.strftime("%Y-%m-%d") %>
   price: 40
-  cod:1234567890000
+  cod: 1234567890000
   blurb: describe10
   duration: 10

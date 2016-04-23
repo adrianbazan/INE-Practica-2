@@ -23,7 +23,7 @@ class FilmTest < ActiveSupport::TestCase
       :directors => Director.all,
       :producer_id => Producer.find(1).id,
       :produced_at => Time.now,
-      :cod => '123456789011',
+      :cod => '1234567890111',
       :blurb => 'A great book',
       :duration => 120,
       :price => 45.5
