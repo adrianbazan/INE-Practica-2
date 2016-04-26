@@ -12,7 +12,7 @@ pro_rails_ecommerce_2:
   title: Pro Rails E-Commerce 2nd Edition
   producer_id: 1
   produced_at: <%= Time.now.strftime("%Y-%m-%d") %>
-  price: 65
+  price: 45.0
   cod: 1234567890222
   blurb: describe2
   duration: 10

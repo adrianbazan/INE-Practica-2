@@ -6,8 +6,8 @@ class Admin::FilmControllerTest < ActionController::TestCase
   test "new" do
     get :new  
     assert_template 'admin/film/new'  
-    assert_tag 'h1', :content => 'Crear pelicula'  
-    assert_tag 'form', :attributes => { :action => '/admin/film/create' }   
+    assert_tag 'h1', :content => 'Crear nueva película'  
+    assert_tag 'form', :attributes => { :action => '/admin/film/create?id=' }   
   end  
 
   test "create" do

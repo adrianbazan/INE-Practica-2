@@ -56,8 +56,8 @@ class Admin::FilmController < Admin::AuthenticatedController
   private
 
     def load_data
-      @directors = Author.all
-      @producers = Publisher.all
+      @directors = Director.all
+      @producers = Producer.all
     end
 
     def film_params

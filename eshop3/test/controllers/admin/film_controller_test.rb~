@@ -6,8 +6,8 @@ class Admin::FilmControllerTest < ActionController::TestCase
   test "new" do
     get :new  
     assert_template 'admin/film/new'  
-    assert_tag 'h1', :content => 'Crear pelicula'  
-    assert_tag 'form', :attributes => { :action => '/admin/film/create' }   
+    assert_tag 'h1', :content => 'Crear nueva película'  
+    assert_tag 'form', :attributes => { :action => '/admin/film/create?id=' }   
   end  
 
   test "create" do
@@ -51,13 +51,14 @@ class Admin::FilmControllerTest < ActionController::TestCase
     get :show, :id => 1
     assert_template 'admin/film/show'
     assert_equal 'Pro Rails E-Commerce', assigns(:film).title
-    assert_equal '45.0', assigns(:film).price
+    assert_equal 45.0, assigns(:film).price
     assert_tag "h1", :content => Film.find(1).title
   end
 
   test "index" do
     get :index
     assert_response :success
+    assert_template 'admin/film/index'
     assert_tag :tag => 'table', :children => { :count => Film.count + 1, :only => {:tag => 'tr'} }
     Film.find_each do |a|
       assert_tag :tag => 'td', :content => a.name

@@ -17,7 +17,7 @@
   <dd><%= @film.duration %></dd>
   <dt>Imagen de Portada</dt>
   <% if @film.cover_image.exists? then %>
-    <dd><%= image_tag @film.cover_image.url %></dd>
+    <dd><%= image_tag @film.cover_image.url(:thumb) %></dd>
   <% else %>
     <dd><%= image_tag '/missing.png' %></dd>
     <p> No hay imagen asignada, por favor suba una. </p>

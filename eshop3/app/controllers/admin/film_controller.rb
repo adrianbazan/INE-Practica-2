@@ -30,7 +30,7 @@ class Admin::FilmController < Admin::AuthenticatedController
       redirect_to :action => 'show', :id => @film
     else
       load_data
-      @page_title = 'Editar pelíucla'
+      @page_title = 'Editar película'
       render :action => 'edit'
     end
   end

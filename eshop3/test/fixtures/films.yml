@@ -4,7 +4,7 @@ pro_rails_ecommerce_1:
   producer_id: 1
   produced_at: <%= Time.now.strftime("%Y-%m-%d") %>
   price: 45.0
-  cod: 1234567890111
+  cod: 123
   blurb: describe1
   duration: 10
 pro_rails_ecommerce_2:
@@ -13,7 +13,7 @@ pro_rails_ecommerce_2:
   producer_id: 1
   produced_at: <%= Time.now.strftime("%Y-%m-%d") %>
   price: 45.0
-  cod: 1234567890222
+  cod: 124
   blurb: describe2
   duration: 10
 pro_rails_ecommerce_3:
@@ -22,7 +22,7 @@ pro_rails_ecommerce_3:
   producer_id: 1
   produced_at: <%= Time.now.strftime("%Y-%m-%d") %>
   price: 85
-  cod: 1234567890333
+  cod: 125
   blurb: describe3
   duration: 10
 pro_rails_ecommerce_4:
@@ -31,7 +31,7 @@ pro_rails_ecommerce_4:
   producer_id: 1
   produced_at: <%= Time.now.strftime("%Y-%m-%d") %>
   price: 105
-  cod: 1234567890444
+  cod: 126
   blurb: describe4
   duration: 10
 pro_rails_ecommerce_5:
@@ -40,7 +40,7 @@ pro_rails_ecommerce_5:
   producer_id: 1
   produced_at: <%= Time.now.strftime("%Y-%m-%d") %>
   price: 125
-  cod: 1234567890555
+  cod: 127
   blurb: describe5
   duration: 10
 pro_rails_ecommerce_6:
@@ -49,7 +49,7 @@ pro_rails_ecommerce_6:
   producer_id: 1
   produced_at: <%= Time.now.strftime("%Y-%m-%d") %>
   price: 145
-  cod: 1234567890666
+  cod: 128
   blurb: describe6
   duration: 10
 pro_rails_ecommerce_7:
@@ -58,7 +58,7 @@ pro_rails_ecommerce_7:
   producer_id: 2
   produced_at: <%= Time.now.strftime("%Y-%m-%d") %>
   price: 165
-  cod: 1234567890777
+  cod: 129
   blurb: describe7
   duration: 10
 ruby_for_dummies_8:
@@ -67,7 +67,7 @@ ruby_for_dummies_8:
   producer_id: 1
   produced_at: <%= Time.now.strftime("%Y-%m-%d") %>
   price: 185
-  cod: 1234567890888
+  cod: 130
   blurb: describe8
   duration: 10
 pride_and_prejudice_9:
@@ -76,7 +76,7 @@ pride_and_prejudice_9:
   producer_id: 2
   produced_at: <%= Time.now.strftime("%Y-%m-%d") %>
   price: 40
-  cod: 1234567890999
+  cod: 131
   blurb: describe9
   duration: 10
 the_idiot_10:
@@ -85,6 +85,6 @@ the_idiot_10:
   producer_id: 2
   produced_at: <%= Time.now.strftime("%Y-%m-%d") %>
   price: 40
-  cod: 1234567890000
+  cod: 132
   blurb: describe10
   duration: 10
