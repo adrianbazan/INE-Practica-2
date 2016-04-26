@@ -1,15 +1,19 @@
-joel_spolsky:
+joel:
   id: 1
   name: Joel
-jeremy_keith:
+jeremy:
   id: 2
   name: Jeremy
-jarkko_laine:
+jarkko:
   id: 3
   name: Jarkko
-christian_hellsten:
+christian:
   id: 4
   name: Christian
-leo_tolstoy:
+leo:
   id: 5
   name: Leo
+apress:
+  id: 6
+  name: Apress
+
