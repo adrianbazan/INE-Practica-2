@@ -1,7 +1,6 @@
 class CatalogController < ApplicationController
-  # ESTO SE QUEDA COMENTADO POR AHORA SEGÚN JOSE MARÍA
-  # before_filter :initialize_cart, :except => :show
-  # before_filter :require_no_user
+  before_filter :initialize_cart, :except => :show
+  #before_filter :require_no_user
 
   def show
     @film = Film.find(params[:id])

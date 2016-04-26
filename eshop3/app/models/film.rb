@@ -18,8 +18,8 @@ class Film < ActiveRecord::Base
 	has_and_belongs_to_many :directors
 	belongs_to :producer
 
-	#has_many :cart_items
-	#has_many :carts, :through => :cart_items
+	has_many :cart_items
+	has_many :carts, :through => :cart_items
 
 	has_attached_file :cover_image, :styles => { :medium =>"300x300>", :thumb => "270x400>" }
 	validates_attachment_content_type :cover_image, :content_type => ["image/jpeg", "image/gif", "image/png"], message:"tiene un formato no válido"

@@ -7,6 +7,12 @@
     <% for director in film.directors %>
       <dd><%= director.last_name %>, <%= director.first_name %></dd>
     <% end %>
+    <dd>
+    <strong>
+	<%= link_to "+", :controller => "cart",
+			 :action => "add", :id => film %>
+	</strong>
+    </dd>
     <dd><%= sprintf("%s. Precio: %.2f €", pluralize(film.duration, "minutos"), film.price) %> </dd>
     <dd><small>Productora: <%= film.producer.name %></small></dd>
   <% end %>
