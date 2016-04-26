@@ -56,9 +56,10 @@ class Admin::ProducerControllerTest < ActionController::TestCase
   test "index" do
     get :index
     assert_response :success
-    assert_tag :tag => 'table', :children => { :count => Producer.count + 1, :only => {:tag => 'dt'} }
+    assert_tag :tag => 'table', :children => { :count => Producer.count + 1, :only => {:tag => 'tr'} }
     Producer.find_each do |a|
-      assert_tag :tag => 'dd', :content => a.title
+      assert_tag :tag => 'td', :content => a.name
+      puts a.name
     end
   end
 end
