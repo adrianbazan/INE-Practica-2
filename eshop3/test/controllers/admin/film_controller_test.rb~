@@ -18,7 +18,7 @@ class Admin::FilmControllerTest < ActionController::TestCase
       assert_response :redirect
       assert_redirected_to :action => 'index'      
     end
-    assert_equal 'Film Pro Rails E-Commerce correctamente creado.', flash[:notice]
+    assert_equal 'Película Pro Rails E-Commerce creada con éxito.', flash[:notice]
   end
 
   test "edit" do
@@ -37,13 +37,13 @@ class Admin::FilmControllerTest < ActionController::TestCase
   test "test_destroy" do
     assert_difference(Film, :count, -1) do
       post :destroy, :id => 1
-      assert_equal flash[:notice], 'Film Pro Rails E-Commerce correctamente eliminado.'
+      assert_equal flash[:notice], 'Película Pro Rails E-Commerce eliminada con éxito.'
       assert_response :redirect
       assert_redirected_to :action => 'index'
       get :index
       assert_response :success
       assert_tag :tag => 'div', :attributes => {:id => 'notice'},
-        :content => 'Film Pro Rails E-Commerce correctamente eliminado.'
+        :content => 'Película Pro Rails E-Commerce eliminada con éxito.'
     end
   end
 
@@ -52,7 +52,7 @@ class Admin::FilmControllerTest < ActionController::TestCase
     assert_template 'admin/film/show'
     assert_equal 'Pro Rails E-Commerce', assigns(:film).title
     assert_equal '45.0', assigns(:film).price
-    assert_tag "h1", :content => Film.find(1).name
+    assert_tag "h1", :content => Film.find(1).title
   end
 
   test "index" do
