@@ -30,7 +30,7 @@ class Admin::FilmController < Admin::AuthenticatedController
       redirect_to :action => 'show', :id => @film
     else
       load_data
-      @page_title = 'Editar pelíucla'
+      @page_title = 'Editar película'
       render :action => 'edit'
     end
   end
@@ -61,7 +61,7 @@ class Admin::FilmController < Admin::AuthenticatedController
     end
 
     def film_params
-      params.require(:film).permit(:title, :producer_id, :produced_at, { :director_ids => [] },
-                                   :cod, :blurb, :price, :duration, :cover_image)
+      params.require(:film).permit(:title, :producer_id, :produced_at,
+                                   :cod, :blurb, :price, :duration)
     end
 end

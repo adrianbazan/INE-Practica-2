@@ -59,6 +59,10 @@ class Admin::ProducerControllerTest < ActionController::TestCase
     assert_tag :tag => 'table', :children => { :count => Producer.count + 1, :only => {:tag => 'tr'} }
     Producer.find_each do |a|
       assert_tag :tag => 'td', :content => a.name
+<<<<<<< HEAD
+=======
+      puts a.name
+>>>>>>> 6c38b771cd85d96f58047579388695952d2858ea
     end
   end
 end

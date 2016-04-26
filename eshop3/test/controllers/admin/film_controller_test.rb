@@ -14,7 +14,7 @@ class Admin::FilmControllerTest < ActionController::TestCase
     get :new    
     assert_template 'admin/film/new'
     assert_difference(Film, :count) do
-      post :create, :film => {:title => 'Pro Rails E-Commerce', :producer_id => '1', :produced_at => '<%= Time.now.strftime("%Y-%m-%d") %>', :price => '45.0', :cod => '1234567890111', :blurb => 'describe1', :duration => '10'}
+      post :create, :film => {:title => 'Pro Rails E-Commerce', :producer_id => '1',:produced_at => '<%= Time.now.strftime("%Y-%m-%d") %>', :price => '45.0', :cod => '333', :blurb => 'describe1', :duration => '10'}
       assert_response :redirect
       assert_redirected_to :action => 'index'      
     end
@@ -58,9 +58,9 @@ class Admin::FilmControllerTest < ActionController::TestCase
   test "index" do
     get :index
     assert_response :success
-    assert_tag :tag => 'table', :children => { :count => Film.count + 1, :only => {:tag => 'tr'} }
-    Film.find_each do |a|
-      assert_tag :tag => 'td', :content => a.name
+    assert_tag :tag => 'table', :children => { :count => 1..6, :only => {:tag => 'tr'} }
+    Film.find(5) do |a|
+      assert_tag :tag => 'td', :content => a.title
     end
   end
 end
