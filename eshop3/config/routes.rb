@@ -34,7 +34,7 @@ Rails.application.routes.draw do
   post 'admin/film/update'
   post 'admin/film/destroy'
   get 'admin/film/show'
-  get 'admin/film/show/:id' => 'admin/book#show'
+  get 'admin/film/show/:id' => 'admin/film#show'
   get 'admin/film/index'
 
   post 'admin/order/close'

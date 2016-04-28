@@ -1,6 +1,9 @@
 require 'test_helper'
 
 class FilmAdministrationTestTest < ActionDispatch::IntegrationTest
+  # test "the truth" do
+  #   assert true
+  # end
 
   test "film_aministration" do
     producer = Producer.create(:name => 'Books of Ruby')
@@ -12,7 +15,7 @@ class FilmAdministrationTestTest < ActionDispatch::IntegrationTest
       :producer_id => producer.id,
       :director_ids => [director.id],
       :produced_at => Time.now,
-      :cod => '150',
+      :cod => '123',
       :blurb => 'A new Book of Ruby',
       :duration => 325,
       :price => 45.5
@@ -26,7 +29,7 @@ class FilmAdministrationTestTest < ActionDispatch::IntegrationTest
       :producer_id => producer.id,
       :director_ids => [director.id],
       :produced_at => Time.now,
-      :cod => '160',
+      :cod => '123',
       :blurb => 'A very new Book of Ruby',
       :duration => 350,
       :price => 50
