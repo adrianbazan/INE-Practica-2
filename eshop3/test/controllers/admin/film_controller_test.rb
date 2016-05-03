@@ -14,11 +14,11 @@ class Admin::FilmControllerTest < ActionController::TestCase
     get :new    
     assert_template 'admin/film/new'
     assert_difference(Film, :count) do
-      post :create, :film => {:title => 'Pro Rails E-Commerce', :producer_id => '1',:produced_at => '<%= Time.now.strftime("%Y-%m-%d") %>', :price => '45.0', :cod => '333', :blurb => 'describe1', :duration => '10'}
+      post :create, :film => {:title => 'John in the happy countries', :producer_id => 1, :director_ids => [1], :produced_at => Time.now.strftime("%Y-%m-%d"), :price => 45.0, :cod => '333', :blurb => 'describe1', :duration => 10}
       assert_response :redirect
       assert_redirected_to :action => 'index'      
     end
-    assert_equal 'Película Pro Rails E-Commerce creada con éxito.', flash[:notice]
+    assert_equal 'Película John in the happy countries ha sido creada con éxito.', flash[:notice]
   end
 
   test "edit" do
@@ -28,10 +28,10 @@ class Admin::FilmControllerTest < ActionController::TestCase
   end
 
   test "update" do
-    post :update, :id => 1, :film => { :title => 'Pro Rails E-Commerce 2nd Edition', :price => '45.0' }
+    post :update, :id => 1, :film => { :title => 'John in the sad countries', :price => '45.0' }
     assert_response :redirect
     assert_redirected_to :action => 'show', :id => 1
-    assert_equal 'Pro Rails E-Commerce 2nd Edition', Film.find(1).title
+    assert_equal 'John in the sad countries', Film.find(1).title
   end
 
   test "test_destroy" do
@@ -59,8 +59,8 @@ class Admin::FilmControllerTest < ActionController::TestCase
     get :index
     assert_response :success
     assert_tag :tag => 'table', :children => { :count => 1..6, :only => {:tag => 'tr'} }
-    Film.find(5) do |a|
-      assert_tag :tag => 'td', :content => a.title
+    Film.find(5) do |f|
+      assert_tag :tag => 'td', :content => f.title
     end
   end
 end
