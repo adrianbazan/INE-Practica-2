@@ -14,7 +14,7 @@ class Admin::OrderController < Admin::AuthenticatedController
   def index
     @status = params[:id]
     if @status.blank?
-      @status = 'all'
+      @status = 'todos'
       conditions = nil
     else
       conditions = "status = '#{@status}'"

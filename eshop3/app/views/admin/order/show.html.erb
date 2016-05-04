@@ -1,4 +1,4 @@
-<h2>Contact Information</h2>
+<h2>Información de contacto</h2>
 <dl>
   <dt>E-mail</dt>
   <dd><%= @order.email %></dd>
@@ -28,7 +28,7 @@
   <%= pluralize(item.amount, "película", "películas") %>, <%= item.price * item.amount %> € <br/>
 <% end %>
 
-<p><strong>Order total <%= @order.total %> €</strong></p>
+<p><strong>Precio total <%= @order.total %> €</strong></p>
 
 <h2>Estado del pedido</h2>
 <dl>
@@ -41,6 +41,6 @@
 </dl>
 
 <% if !@order.closed? %> <p></p> <% end %>
-<%= button_to 'Cerrar orden', {:action => 'close', :id => @order},
+<%= button_to 'Cerrar pedido', {:action => 'close', :id => @order},
     data: { confirm: "¿Esta seguro de que quiere cerrar el pedido #{@order.id}?" } if @order.processed? %>
 <%= render :partial => 'navigation' %>

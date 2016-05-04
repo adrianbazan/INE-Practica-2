@@ -4,6 +4,6 @@ class OrderItem < ActiveRecord::Base
 
   def validate
     errors.add(:amount, "debería ser uno o más") unless amount.nil? || amount > 0
-    errors.add(:price, "debería ser un númeor positivo") unless price.nil? || price > 0.0
+    errors.add(:price, "debería ser un número positivo") unless price.nil? || price > 0.0
   end
 end
