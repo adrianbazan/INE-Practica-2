@@ -20,6 +20,10 @@ class Admin::OrderController < Admin::AuthenticatedController
       conditions = "status = '#{@status}'"
     end
     @orders = Order.where(conditions).paginate(:page => params[:page], :per_page => 10)
-    @page_title = "Listando pedidos #{@status}"
+    if @status =='todos'
+      @page_title = "Listando pedidos"
+    else
+      @page_title = "Listando pedidos #{@status}"
+    end
   end
 end

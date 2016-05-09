@@ -11934,3 +11934,1048 @@ Completed 200 OK in 45ms (Views: 42.4ms | ActiveRecord: 0.8ms)
   [1m[35m (44.2ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20130304165926')
   [1m[36m (44.3ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20160412123806')[0m
   [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+
+
+Started GET "/" for 127.0.0.1 at 2016-05-09 10:17:18 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (21.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by CatalogController#index as HTML
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (15.5ms)[0m  [1mINSERT INTO `carts` (`created_at`, `updated_at`) VALUES ('2016-05-09 08:17:18', '2016-05-09 08:17:18')[0m
+  [1m[35m (36.3ms)[0m  COMMIT
+  [1m[36mFilm Load (25.5ms)[0m  [1mSELECT  `films`.* FROM `films`   ORDER BY films.id desc LIMIT 5 OFFSET 0[0m
+  Rendered catalog/_films.html.erb (29.4ms)
+  Rendered catalog/index.html.erb within layouts/application (35.5ms)
+  [1m[35mCartItem Load (0.3ms)[0m  SELECT `cart_items`.* FROM `cart_items`  WHERE `cart_items`.`cart_id` = 1
+  Rendered cart/_cart.html.erb (52.0ms)
+Completed 200 OK in 573ms (Views: 397.7ms | ActiveRecord: 112.5ms)
+
+
+Started GET "/assets/about.css?body=1" for 127.0.0.1 at 2016-05-09 10:17:19 +0200
+
+
+Started GET "/assets/admin/director.css?body=1" for 127.0.0.1 at 2016-05-09 10:17:19 +0200
+
+
+Started GET "/assets/admin/producer.css?body=1" for 127.0.0.1 at 2016-05-09 10:17:19 +0200
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2016-05-09 10:17:19 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-05-09 10:17:19 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-05-09 10:17:19 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-05-09 10:17:19 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-05-09 10:17:19 +0200
+
+
+Started GET "/assets/about.js?body=1" for 127.0.0.1 at 2016-05-09 10:17:19 +0200
+
+
+Started GET "/assets/admin/director.js?body=1" for 127.0.0.1 at 2016-05-09 10:17:19 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-05-09 10:17:19 +0200
+
+
+Started GET "/assets/admin/producer.js?body=1" for 127.0.0.1 at 2016-05-09 10:17:19 +0200
+
+
+Started GET "/admin/order" for 127.0.0.1 at 2016-05-09 10:17:27 +0200
+
+SyntaxError (/home/jose/Escritorio/INE-Practica-2/eshop3/app/controllers/admin/order_controller.rb:28: syntax error, unexpected end-of-input, expecting keyword_end):
+  activesupport (4.1.1) lib/active_support/dependencies.rb:443:in `load'
+  activesupport (4.1.1) lib/active_support/dependencies.rb:443:in `block in load_file'
+  activesupport (4.1.1) lib/active_support/dependencies.rb:633:in `new_constants_in'
+  activesupport (4.1.1) lib/active_support/dependencies.rb:442:in `load_file'
+  activesupport (4.1.1) lib/active_support/dependencies.rb:342:in `require_or_load'
+  activesupport (4.1.1) lib/active_support/dependencies.rb:480:in `load_missing_constant'
+  activesupport (4.1.1) lib/active_support/dependencies.rb:180:in `const_missing'
+  activesupport (4.1.1) lib/active_support/inflector/methods.rb:240:in `const_get'
+  activesupport (4.1.1) lib/active_support/inflector/methods.rb:240:in `block in constantize'
+  activesupport (4.1.1) lib/active_support/inflector/methods.rb:236:in `each'
+  activesupport (4.1.1) lib/active_support/inflector/methods.rb:236:in `inject'
+  activesupport (4.1.1) lib/active_support/inflector/methods.rb:236:in `constantize'
+  activesupport (4.1.1) lib/active_support/dependencies.rb:552:in `get'
+  activesupport (4.1.1) lib/active_support/dependencies.rb:583:in `constantize'
+  actionpack (4.1.1) lib/action_dispatch/routing/route_set.rb:76:in `controller_reference'
+  actionpack (4.1.1) lib/action_dispatch/routing/route_set.rb:66:in `controller'
+  actionpack (4.1.1) lib/action_dispatch/routing/route_set.rb:44:in `call'
+  actionpack (4.1.1) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.1) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.1.1) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.1) lib/action_dispatch/routing/route_set.rb:676:in `call'
+  rack (1.5.5) lib/rack/etag.rb:23:in `call'
+  rack (1.5.5) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.5) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.5) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.5) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.1) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  /home/jose/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/jose/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/jose/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/jose/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.2ms)
+  Rendered /home/jose/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /home/jose/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.2ms)
+  Rendered /home/jose/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (39.3ms)
+
+
+Started GET "/admin/order" for 127.0.0.1 at 2016-05-09 10:17:28 +0200
+
+SyntaxError (/home/jose/Escritorio/INE-Practica-2/eshop3/app/controllers/admin/order_controller.rb:28: syntax error, unexpected end-of-input, expecting keyword_end):
+  activesupport (4.1.1) lib/active_support/dependencies.rb:443:in `load'
+  activesupport (4.1.1) lib/active_support/dependencies.rb:443:in `block in load_file'
+  activesupport (4.1.1) lib/active_support/dependencies.rb:633:in `new_constants_in'
+  activesupport (4.1.1) lib/active_support/dependencies.rb:442:in `load_file'
+  activesupport (4.1.1) lib/active_support/dependencies.rb:342:in `require_or_load'
+  activesupport (4.1.1) lib/active_support/dependencies.rb:480:in `load_missing_constant'
+  activesupport (4.1.1) lib/active_support/dependencies.rb:180:in `const_missing'
+  activesupport (4.1.1) lib/active_support/inflector/methods.rb:240:in `const_get'
+  activesupport (4.1.1) lib/active_support/inflector/methods.rb:240:in `block in constantize'
+  activesupport (4.1.1) lib/active_support/inflector/methods.rb:236:in `each'
+  activesupport (4.1.1) lib/active_support/inflector/methods.rb:236:in `inject'
+  activesupport (4.1.1) lib/active_support/inflector/methods.rb:236:in `constantize'
+  activesupport (4.1.1) lib/active_support/dependencies.rb:552:in `get'
+  activesupport (4.1.1) lib/active_support/dependencies.rb:583:in `constantize'
+  actionpack (4.1.1) lib/action_dispatch/routing/route_set.rb:76:in `controller_reference'
+  actionpack (4.1.1) lib/action_dispatch/routing/route_set.rb:66:in `controller'
+  actionpack (4.1.1) lib/action_dispatch/routing/route_set.rb:44:in `call'
+  actionpack (4.1.1) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.1) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.1.1) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.1) lib/action_dispatch/routing/route_set.rb:676:in `call'
+  rack (1.5.5) lib/rack/etag.rb:23:in `call'
+  rack (1.5.5) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.5) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.5) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.5) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.1) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  /home/jose/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/jose/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/jose/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/jose/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /home/jose/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /home/jose/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/jose/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.2ms)
+
+
+Started GET "/admin/order" for 127.0.0.1 at 2016-05-09 10:17:49 +0200
+Processing by Admin::OrderController#index as HTML
+  [1m[36mOrder Load (22.6ms)[0m  [1mSELECT  `orders`.* FROM `orders`  LIMIT 10 OFFSET 0[0m
+  Rendered admin/order/_navigation.html.erb (3.8ms)
+  Rendered admin/order/index.html.erb within layouts/application (28.8ms)
+Completed 200 OK in 100ms (Views: 48.1ms | ActiveRecord: 22.6ms)
+
+
+Started GET "/admin/order?id=abierto" for 127.0.0.1 at 2016-05-09 10:17:53 +0200
+Processing by Admin::OrderController#index as HTML
+  Parameters: {"id"=>"abierto"}
+  [1m[35mOrder Load (0.4ms)[0m  SELECT  `orders`.* FROM `orders`  WHERE (status = 'abierto') LIMIT 10 OFFSET 0
+  Rendered admin/order/_navigation.html.erb (2.0ms)
+  Rendered admin/order/index.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 80ms (Views: 78.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin/order?id=" for 127.0.0.1 at 2016-05-09 10:17:55 +0200
+Processing by Admin::OrderController#index as HTML
+  Parameters: {"id"=>""}
+  [1m[36mOrder Load (0.4ms)[0m  [1mSELECT  `orders`.* FROM `orders`  LIMIT 10 OFFSET 0[0m
+  Rendered admin/order/_navigation.html.erb (1.9ms)
+  Rendered admin/order/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 68ms (Views: 66.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin/order?id=procesado" for 127.0.0.1 at 2016-05-09 10:17:55 +0200
+Processing by Admin::OrderController#index as HTML
+  Parameters: {"id"=>"procesado"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT  `orders`.* FROM `orders`  WHERE (status = 'procesado') LIMIT 10 OFFSET 0
+  Rendered admin/order/_navigation.html.erb (1.1ms)
+  Rendered admin/order/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 53ms (Views: 51.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/order?id=cerrado" for 127.0.0.1 at 2016-05-09 10:17:56 +0200
+Processing by Admin::OrderController#index as HTML
+  Parameters: {"id"=>"cerrado"}
+  [1m[36mOrder Load (0.4ms)[0m  [1mSELECT  `orders`.* FROM `orders`  WHERE (status = 'cerrado') LIMIT 10 OFFSET 0[0m
+  Rendered admin/order/_navigation.html.erb (1.5ms)
+  Rendered admin/order/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 50ms (Views: 49.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin/order?id=fallido" for 127.0.0.1 at 2016-05-09 10:17:57 +0200
+Processing by Admin::OrderController#index as HTML
+  Parameters: {"id"=>"fallido"}
+  [1m[35mOrder Load (0.2ms)[0m  SELECT  `orders`.* FROM `orders`  WHERE (status = 'fallido') LIMIT 10 OFFSET 0
+  Rendered admin/order/_navigation.html.erb (0.8ms)
+  Rendered admin/order/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 44ms (Views: 43.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/film" for 127.0.0.1 at 2016-05-09 10:18:01 +0200
+Processing by Admin::FilmController#index as HTML
+  [1m[36mFilm Load (0.3ms)[0m  [1mSELECT  `films`.* FROM `films`  LIMIT 5 OFFSET 0[0m
+  Rendered admin/film/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 73ms (Views: 62.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/producer" for 127.0.0.1 at 2016-05-09 10:18:04 +0200
+Processing by Admin::ProducerController#index as HTML
+  [1m[35mProducer Load (10.1ms)[0m  SELECT `producers`.* FROM `producers`
+  Rendered admin/producer/_producer.html.erb (0.0ms)
+  Rendered admin/producer/index.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 71ms (Views: 46.7ms | ActiveRecord: 10.1ms)
+
+
+Started GET "/admin/director" for 127.0.0.1 at 2016-05-09 10:18:05 +0200
+Processing by Admin::DirectorController#index as HTML
+  [1m[36mDirector Load (25.0ms)[0m  [1mSELECT `directors`.* FROM `directors`[0m
+  Rendered admin/director/_director.html.erb (0.0ms)
+  Rendered admin/director/index.html.erb within layouts/application (29.0ms)
+Completed 200 OK in 159ms (Views: 52.7ms | ActiveRecord: 25.0ms)
+
+
+Started GET "/admin/film" for 127.0.0.1 at 2016-05-09 10:18:06 +0200
+Processing by Admin::FilmController#index as HTML
+  [1m[35mFilm Load (0.2ms)[0m  SELECT  `films`.* FROM `films`  LIMIT 5 OFFSET 0
+  Rendered admin/film/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 43ms (Views: 41.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/order" for 127.0.0.1 at 2016-05-09 10:18:08 +0200
+Processing by Admin::OrderController#index as HTML
+  [1m[36mOrder Load (0.2ms)[0m  [1mSELECT  `orders`.* FROM `orders`  LIMIT 10 OFFSET 0[0m
+  Rendered admin/order/_navigation.html.erb (0.8ms)
+  Rendered admin/order/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 47ms (Views: 45.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-05-09 10:18:09 +0200
+Processing by CatalogController#index as HTML
+  [1m[35mCart Load (0.3ms)[0m  SELECT  `carts`.* FROM `carts`  WHERE `carts`.`id` = 1 LIMIT 1
+  [1m[36mFilm Load (0.3ms)[0m  [1mSELECT  `films`.* FROM `films`   ORDER BY films.id desc LIMIT 5 OFFSET 0[0m
+  Rendered catalog/_films.html.erb (1.4ms)
+  Rendered catalog/index.html.erb within layouts/application (2.4ms)
+  [1m[35mCartItem Load (0.2ms)[0m  SELECT `cart_items`.* FROM `cart_items`  WHERE `cart_items`.`cart_id` = 1
+  Rendered cart/_cart.html.erb (4.7ms)
+Completed 200 OK in 55ms (Views: 45.7ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2016-05-09 10:18:10 +0200
+Processing by AboutController#index as HTML
+  Rendered about/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 41ms (Views: 40.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-05-09 10:18:12 +0200
+Processing by CatalogController#index as HTML
+  [1m[36mCart Load (0.3ms)[0m  [1mSELECT  `carts`.* FROM `carts`  WHERE `carts`.`id` = 1 LIMIT 1[0m
+  [1m[35mFilm Load (0.2ms)[0m  SELECT  `films`.* FROM `films`   ORDER BY films.id desc LIMIT 5 OFFSET 0
+  Rendered catalog/_films.html.erb (0.7ms)
+  Rendered catalog/index.html.erb within layouts/application (1.4ms)
+  [1m[36mCartItem Load (0.3ms)[0m  [1mSELECT `cart_items`.* FROM `cart_items`  WHERE `cart_items`.`cart_id` = 1[0m
+  Rendered cart/_cart.html.erb (1.3ms)
+Completed 200 OK in 51ms (Views: 48.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/admin/film" for 127.0.0.1 at 2016-05-09 10:18:13 +0200
+Processing by Admin::FilmController#index as HTML
+  [1m[35mFilm Load (0.5ms)[0m  SELECT  `films`.* FROM `films`  LIMIT 5 OFFSET 0
+  Rendered admin/film/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 48ms (Views: 46.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/order" for 127.0.0.1 at 2016-05-09 10:18:15 +0200
+Processing by Admin::OrderController#index as HTML
+  [1m[36mOrder Load (0.5ms)[0m  [1mSELECT  `orders`.* FROM `orders`  LIMIT 10 OFFSET 0[0m
+  Rendered admin/order/_navigation.html.erb (2.3ms)
+  Rendered admin/order/index.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 70ms (Views: 68.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/order?id=" for 127.0.0.1 at 2016-05-09 10:18:33 +0200
+Processing by Admin::OrderController#index as HTML
+  Parameters: {"id"=>""}
+  [1m[35mOrder Load (0.2ms)[0m  SELECT  `orders`.* FROM `orders`  LIMIT 10 OFFSET 0
+  Rendered admin/order/_navigation.html.erb (0.9ms)
+  Rendered admin/order/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 43ms (Views: 42.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/order?id=abierto" for 127.0.0.1 at 2016-05-09 10:18:34 +0200
+Processing by Admin::OrderController#index as HTML
+  Parameters: {"id"=>"abierto"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT  `orders`.* FROM `orders`  WHERE (status = 'abierto') LIMIT 10 OFFSET 0[0m
+  Rendered admin/order/_navigation.html.erb (1.3ms)
+  Rendered admin/order/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 46ms (Views: 45.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/order?id=" for 127.0.0.1 at 2016-05-09 10:18:38 +0200
+Processing by Admin::OrderController#index as HTML
+  Parameters: {"id"=>""}
+  [1m[35mOrder Load (0.4ms)[0m  SELECT  `orders`.* FROM `orders`  LIMIT 10 OFFSET 0
+  Rendered admin/order/_navigation.html.erb (3.2ms)
+  Rendered admin/order/index.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 67ms (Views: 65.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin/film" for 127.0.0.1 at 2016-05-09 10:18:41 +0200
+Processing by Admin::FilmController#index as HTML
+  [1m[36mFilm Load (0.4ms)[0m  [1mSELECT  `films`.* FROM `films`  LIMIT 5 OFFSET 0[0m
+  Rendered admin/film/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 58ms (Views: 57.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin/producer" for 127.0.0.1 at 2016-05-09 10:19:53 +0200
+Processing by Admin::ProducerController#index as HTML
+  [1m[35mProducer Load (0.2ms)[0m  SELECT `producers`.* FROM `producers`
+  Rendered admin/producer/_producer.html.erb (0.0ms)
+  Rendered admin/producer/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 47ms (Views: 45.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/film" for 127.0.0.1 at 2016-05-09 10:19:54 +0200
+Processing by Admin::FilmController#index as HTML
+  [1m[36mFilm Load (0.2ms)[0m  [1mSELECT  `films`.* FROM `films`  LIMIT 5 OFFSET 0[0m
+  Rendered admin/film/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 45ms (Views: 43.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/order" for 127.0.0.1 at 2016-05-09 10:19:55 +0200
+Processing by Admin::OrderController#index as HTML
+  [1m[35mOrder Load (0.3ms)[0m  SELECT  `orders`.* FROM `orders`  LIMIT 10 OFFSET 0
+  Rendered admin/order/_navigation.html.erb (1.0ms)
+  Rendered admin/order/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 52ms (Views: 51.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/order?id=abierto" for 127.0.0.1 at 2016-05-09 10:21:04 +0200
+Processing by Admin::OrderController#index as HTML
+  Parameters: {"id"=>"abierto"}
+  [1m[36mOrder Load (0.5ms)[0m  [1mSELECT  `orders`.* FROM `orders`  WHERE (status = 'abierto') LIMIT 10 OFFSET 0[0m
+  Rendered admin/order/_navigation.html.erb (2.3ms)
+  Rendered admin/order/index.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 65ms (Views: 62.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/order?id=procesado" for 127.0.0.1 at 2016-05-09 10:21:05 +0200
+Processing by Admin::OrderController#index as HTML
+  Parameters: {"id"=>"procesado"}
+  [1m[35mOrder Load (0.5ms)[0m  SELECT  `orders`.* FROM `orders`  WHERE (status = 'procesado') LIMIT 10 OFFSET 0
+  Rendered admin/order/_navigation.html.erb (2.1ms)
+  Rendered admin/order/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 58ms (Views: 56.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/order?id=fallido" for 127.0.0.1 at 2016-05-09 10:21:07 +0200
+Processing by Admin::OrderController#index as HTML
+  Parameters: {"id"=>"fallido"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT  `orders`.* FROM `orders`  WHERE (status = 'fallido') LIMIT 10 OFFSET 0[0m
+  Rendered admin/order/_navigation.html.erb (0.9ms)
+  Rendered admin/order/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 50ms (Views: 48.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/order?id=cerrado" for 127.0.0.1 at 2016-05-09 10:21:07 +0200
+Processing by Admin::OrderController#index as HTML
+  Parameters: {"id"=>"cerrado"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT  `orders`.* FROM `orders`  WHERE (status = 'cerrado') LIMIT 10 OFFSET 0
+  Rendered admin/order/_navigation.html.erb (0.9ms)
+  Rendered admin/order/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 46ms (Views: 44.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/order?id=" for 127.0.0.1 at 2016-05-09 10:21:11 +0200
+Processing by Admin::OrderController#index as HTML
+  Parameters: {"id"=>""}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT  `orders`.* FROM `orders`  LIMIT 10 OFFSET 0[0m
+  Rendered admin/order/_navigation.html.erb (1.5ms)
+  Rendered admin/order/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 52ms (Views: 50.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/order?id=" for 127.0.0.1 at 2016-05-09 10:22:56 +0200
+Processing by Admin::OrderController#index as HTML
+  Parameters: {"id"=>""}
+  [1m[35mOrder Load (0.2ms)[0m  SELECT  `orders`.* FROM `orders`  LIMIT 10 OFFSET 0
+  Rendered admin/order/_navigation.html.erb (0.8ms)
+  Rendered admin/order/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 43ms (Views: 42.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/order?id=abierto" for 127.0.0.1 at 2016-05-09 10:22:57 +0200
+Processing by Admin::OrderController#index as HTML
+  Parameters: {"id"=>"abierto"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT  `orders`.* FROM `orders`  WHERE (status = 'abierto') LIMIT 10 OFFSET 0[0m
+  Rendered admin/order/_navigation.html.erb (0.8ms)
+  Rendered admin/order/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 47ms (Views: 46.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/order?id=procesado" for 127.0.0.1 at 2016-05-09 10:22:58 +0200
+Processing by Admin::OrderController#index as HTML
+  Parameters: {"id"=>"procesado"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT  `orders`.* FROM `orders`  WHERE (status = 'procesado') LIMIT 10 OFFSET 0
+  Rendered admin/order/_navigation.html.erb (0.8ms)
+  Rendered admin/order/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 42ms (Views: 40.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/order?id=" for 127.0.0.1 at 2016-05-09 10:22:59 +0200
+Processing by Admin::OrderController#index as HTML
+  Parameters: {"id"=>""}
+  [1m[36mOrder Load (0.2ms)[0m  [1mSELECT  `orders`.* FROM `orders`  LIMIT 10 OFFSET 0[0m
+  Rendered admin/order/_navigation.html.erb (0.8ms)
+  Rendered admin/order/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 42ms (Views: 41.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/director" for 127.0.0.1 at 2016-05-09 10:23:05 +0200
+Processing by Admin::DirectorController#index as HTML
+  [1m[35mDirector Load (0.3ms)[0m  SELECT `directors`.* FROM `directors`
+  Rendered admin/director/_director.html.erb (0.0ms)
+  Rendered admin/director/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 48ms (Views: 47.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/director/new" for 127.0.0.1 at 2016-05-09 10:23:07 +0200
+Processing by Admin::DirectorController#new as HTML
+  Rendered admin/director/_form.html.erb (21.4ms)
+  Rendered admin/director/new.html.erb within layouts/application (30.6ms)
+Completed 200 OK in 177ms (Views: 175.5ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/admin/director/create" for 127.0.0.1 at 2016-05-09 10:23:11 +0200
+Processing by Admin::DirectorController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cvb6Yxbdhwt6EhP2okWhbmk7hVnOFG58mY8N9KqiTeo=", "director"=>{"first_name"=>"juan", "last_name"=>"boubeta"}, "commit"=>"Crear director"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `directors` (`created_at`, `first_name`, `last_name`, `updated_at`) VALUES ('2016-05-09 08:23:11', 'juan', 'boubeta', '2016-05-09 08:23:11')
+  [1m[36m (77.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/admin/director
+Completed 302 Found in 82ms (ActiveRecord: 78.2ms)
+
+
+Started GET "/admin/director" for 127.0.0.1 at 2016-05-09 10:23:11 +0200
+Processing by Admin::DirectorController#index as HTML
+  [1m[35mDirector Load (0.2ms)[0m  SELECT `directors`.* FROM `directors`
+  Rendered admin/director/_director.html.erb (1.1ms)
+  Rendered admin/director/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 49ms (Views: 48.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/about.css?body=1" for 127.0.0.1 at 2016-05-09 10:23:12 +0200
+
+
+Started GET "/assets/admin/director.css?body=1" for 127.0.0.1 at 2016-05-09 10:23:12 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-05-09 10:23:12 +0200
+
+
+Started GET "/assets/admin/producer.css?body=1" for 127.0.0.1 at 2016-05-09 10:23:12 +0200
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2016-05-09 10:23:12 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-05-09 10:23:12 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-05-09 10:23:12 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-05-09 10:23:12 +0200
+
+
+Started GET "/assets/about.js?body=1" for 127.0.0.1 at 2016-05-09 10:23:12 +0200
+
+
+Started GET "/assets/admin/director.js?body=1" for 127.0.0.1 at 2016-05-09 10:23:12 +0200
+
+
+Started GET "/assets/admin/producer.js?body=1" for 127.0.0.1 at 2016-05-09 10:23:12 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-05-09 10:23:12 +0200
+
+
+Started GET "/admin/producer" for 127.0.0.1 at 2016-05-09 10:23:14 +0200
+Processing by Admin::ProducerController#index as HTML
+  [1m[36mProducer Load (0.2ms)[0m  [1mSELECT `producers`.* FROM `producers`[0m
+  Rendered admin/producer/_producer.html.erb (0.0ms)
+  Rendered admin/producer/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 45ms (Views: 44.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/producer/new" for 127.0.0.1 at 2016-05-09 10:23:15 +0200
+Processing by Admin::ProducerController#new as HTML
+  Rendered admin/producer/_form.html.erb (2.4ms)
+  Rendered admin/producer/new.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 86ms (Views: 84.1ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/admin/producer/create" for 127.0.0.1 at 2016-05-09 10:23:20 +0200
+Processing by Admin::ProducerController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cvb6Yxbdhwt6EhP2okWhbmk7hVnOFG58mY8N9KqiTeo=", "producer"=>{"name"=>"Disney"}, "commit"=>"Crear productora"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `producers` (`created_at`, `name`, `updated_at`) VALUES ('2016-05-09 08:23:20', 'Disney', '2016-05-09 08:23:20')[0m
+  [1m[35m (244.9ms)[0m  COMMIT
+Redirected to http://localhost:3000/admin/producer
+Completed 302 Found in 251ms (ActiveRecord: 245.3ms)
+
+
+Started GET "/admin/producer" for 127.0.0.1 at 2016-05-09 10:23:20 +0200
+Processing by Admin::ProducerController#index as HTML
+  [1m[36mProducer Load (0.4ms)[0m  [1mSELECT `producers`.* FROM `producers`[0m
+  Rendered admin/producer/_producer.html.erb (2.5ms)
+  Rendered admin/producer/index.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 76ms (Views: 74.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/about.css?body=1" for 127.0.0.1 at 2016-05-09 10:23:20 +0200
+
+
+Started GET "/assets/admin/director.css?body=1" for 127.0.0.1 at 2016-05-09 10:23:20 +0200
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2016-05-09 10:23:20 +0200
+
+
+Started GET "/assets/admin/producer.css?body=1" for 127.0.0.1 at 2016-05-09 10:23:20 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-05-09 10:23:20 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-05-09 10:23:20 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-05-09 10:23:20 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-05-09 10:23:20 +0200
+
+
+Started GET "/assets/about.js?body=1" for 127.0.0.1 at 2016-05-09 10:23:20 +0200
+
+
+Started GET "/assets/admin/director.js?body=1" for 127.0.0.1 at 2016-05-09 10:23:20 +0200
+
+
+Started GET "/assets/admin/producer.js?body=1" for 127.0.0.1 at 2016-05-09 10:23:20 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-05-09 10:23:20 +0200
+
+
+Started GET "/admin/film" for 127.0.0.1 at 2016-05-09 10:23:23 +0200
+Processing by Admin::FilmController#index as HTML
+  [1m[35mFilm Load (0.3ms)[0m  SELECT  `films`.* FROM `films`  LIMIT 5 OFFSET 0
+  Rendered admin/film/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 47ms (Views: 46.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/film/new" for 127.0.0.1 at 2016-05-09 10:23:25 +0200
+Processing by Admin::FilmController#new as HTML
+  [1m[36mProducer Load (0.3ms)[0m  [1mSELECT `producers`.* FROM `producers`[0m
+  [1m[35mDirector Load (0.1ms)[0m  SELECT `directors`.* FROM `directors`
+  Rendered admin/film/_form.html.erb (200.4ms)
+  Rendered admin/film/new.html.erb within layouts/application (202.5ms)
+Completed 200 OK in 255ms (Views: 248.3ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/admin/film/create?id=" for 127.0.0.1 at 2016-05-09 10:23:56 +0200
+Processing by Admin::FilmController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cvb6Yxbdhwt6EhP2okWhbmk7hVnOFG58mY8N9KqiTeo=", "film"=>{"title"=>"Dark Souls 3", "producer_id"=>"1", "director_ids"=>["1"], "produced_at(1i)"=>"2016", "produced_at(2i)"=>"5", "produced_at(3i)"=>"9", "cod"=>"123", "blurb"=>"Radical", "price"=>"40", "duration"=>"90", "cover_image"=>#<ActionDispatch::Http::UploadedFile:0x00000001554758 @tempfile=#<Tempfile:/tmp/RackMultipart20160509-2745-1f5yped>, @original_filename="dark_souls_3.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"film[cover_image]\"; filename=\"dark_souls_3.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Crear película", "id"=>""}
+  [1m[36mDirector Load (0.2ms)[0m  [1mSELECT  `directors`.* FROM `directors`  WHERE `directors`.`id` = 1 LIMIT 1[0m
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/8a6c62e689085af1350b58c5279a89b920160509-2745-agt7zr[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/8a6c62e689085af1350b58c5279a89b920160509-2745-agt7zr[0]'
+Command :: convert '/tmp/8a6c62e689085af1350b58c5279a89b920160509-2745-agt7zr[0]' -auto-orient -resize "300x300>" '/tmp/8a6c62e689085af1350b58c5279a89b920160509-2745-agt7zr20160509-2745-8nqwsg'
+Command :: file -b --mime '/tmp/8a6c62e689085af1350b58c5279a89b920160509-2745-agt7zr20160509-2745-8nqwsg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/8a6c62e689085af1350b58c5279a89b920160509-2745-agt7zr[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/8a6c62e689085af1350b58c5279a89b920160509-2745-agt7zr[0]'
+Command :: convert '/tmp/8a6c62e689085af1350b58c5279a89b920160509-2745-agt7zr[0]' -auto-orient -resize "270x400>" '/tmp/8a6c62e689085af1350b58c5279a89b920160509-2745-agt7zr20160509-2745-14pd8up'
+Command :: file -b --mime '/tmp/8a6c62e689085af1350b58c5279a89b920160509-2745-agt7zr20160509-2745-14pd8up'
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mProducer Load (0.4ms)[0m  [1mSELECT  `producers`.* FROM `producers`  WHERE `producers`.`id` = 1 LIMIT 1[0m
+  [1m[35mFilm Exists (0.2ms)[0m  SELECT  1 AS one FROM `films`  WHERE `films`.`cod` = BINARY '123' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `films` (`blurb`, `cod`, `cover_image_content_type`, `cover_image_file_name`, `cover_image_file_size`, `cover_image_updated_at`, `created_at`, `duration`, `price`, `produced_at`, `producer_id`, `title`, `updated_at`) VALUES ('Radical', '123', 'image/jpeg', 'dark_souls_3.jpg', 1987140, '2016-05-09 08:23:56', '2016-05-09 08:23:58', 90, 40.0, '2016-05-09 00:00:00', 1, 'Dark Souls 3', '2016-05-09 08:23:58')[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `directors_films` (`created_at`, `director_id`, `film_id`, `updated_at`) VALUES ('2016-05-09 08:23:58', 1, 1, '2016-05-09 08:23:58')
+  [1m[36m (101.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/admin/film
+Completed 302 Found in 1956ms (ActiveRecord: 103.2ms)
+
+
+Started GET "/admin/film" for 127.0.0.1 at 2016-05-09 10:23:58 +0200
+Processing by Admin::FilmController#index as HTML
+  [1m[35mFilm Load (0.4ms)[0m  SELECT  `films`.* FROM `films`  LIMIT 5 OFFSET 0
+  [1m[36mProducer Load (0.3ms)[0m  [1mSELECT  `producers`.* FROM `producers`  WHERE `producers`.`id` = 1 LIMIT 1[0m
+  Rendered admin/film/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 59ms (Views: 56.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/about.css?body=1" for 127.0.0.1 at 2016-05-09 10:23:58 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-05-09 10:23:58 +0200
+
+
+Started GET "/assets/admin/director.css?body=1" for 127.0.0.1 at 2016-05-09 10:23:58 +0200
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2016-05-09 10:23:58 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-05-09 10:23:58 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-05-09 10:23:58 +0200
+
+
+Started GET "/assets/admin/producer.css?body=1" for 127.0.0.1 at 2016-05-09 10:23:58 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-05-09 10:23:58 +0200
+
+
+Started GET "/assets/about.js?body=1" for 127.0.0.1 at 2016-05-09 10:23:58 +0200
+
+
+Started GET "/assets/admin/director.js?body=1" for 127.0.0.1 at 2016-05-09 10:23:58 +0200
+
+
+Started GET "/assets/admin/producer.js?body=1" for 127.0.0.1 at 2016-05-09 10:23:58 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-05-09 10:23:58 +0200
+
+
+Started GET "/admin/film/show/1" for 127.0.0.1 at 2016-05-09 10:24:01 +0200
+Processing by Admin::FilmController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mFilm Load (0.3ms)[0m  SELECT  `films`.* FROM `films`  WHERE `films`.`id` = 1 LIMIT 1
+  [1m[36mProducer Load (0.2ms)[0m  [1mSELECT  `producers`.* FROM `producers`  WHERE `producers`.`id` = 1 LIMIT 1[0m
+  [1m[35mDirector Load (0.4ms)[0m  SELECT `directors`.* FROM `directors` INNER JOIN `directors_films` ON `directors`.`id` = `directors_films`.`director_id` WHERE `directors_films`.`film_id` = 1
+  Rendered admin/film/show.html.erb within layouts/application (29.3ms)
+Completed 200 OK in 167ms (Views: 165.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/admin/order" for 127.0.0.1 at 2016-05-09 10:24:06 +0200
+Processing by Admin::OrderController#index as HTML
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT  `orders`.* FROM `orders`  LIMIT 10 OFFSET 0[0m
+  Rendered admin/order/_navigation.html.erb (0.8ms)
+  Rendered admin/order/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 43ms (Views: 42.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-05-09 10:24:08 +0200
+Processing by CatalogController#index as HTML
+  [1m[35mCart Load (0.4ms)[0m  SELECT  `carts`.* FROM `carts`  WHERE `carts`.`id` = 1 LIMIT 1
+  [1m[36mFilm Load (0.2ms)[0m  [1mSELECT  `films`.* FROM `films`   ORDER BY films.id desc LIMIT 5 OFFSET 0[0m
+  [1m[35mHABTM_Directors Load (0.3ms)[0m  SELECT `directors_films`.* FROM `directors_films`  WHERE `directors_films`.`film_id` IN (1)
+  [1m[36mDirector Load (0.2ms)[0m  [1mSELECT `directors`.* FROM `directors`  WHERE `directors`.`id` IN (1)[0m
+  [1m[35mProducer Load (0.1ms)[0m  SELECT `producers`.* FROM `producers`  WHERE `producers`.`id` IN (1)
+  Rendered catalog/_films.html.erb (86.4ms)
+  Rendered catalog/index.html.erb within layouts/application (87.2ms)
+  [1m[36mCartItem Load (0.2ms)[0m  [1mSELECT `cart_items`.* FROM `cart_items`  WHERE `cart_items`.`cart_id` = 1[0m
+  Rendered cart/_cart.html.erb (1.2ms)
+Completed 200 OK in 137ms (Views: 133.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/cart/add?id=1" for 127.0.0.1 at 2016-05-09 10:24:10 +0200
+Processing by CartController#add as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCart Load (0.2ms)[0m  SELECT  `carts`.* FROM `carts`  WHERE `carts`.`id` = 1 LIMIT 1
+  [1m[36mFilm Load (0.1ms)[0m  [1mSELECT  `films`.* FROM `films`  WHERE `films`.`id` = 1 LIMIT 1[0m
+  Rendered cart/add.html.erb within layouts/application (1.3ms)
+  [1m[35mCartItem Load (0.2ms)[0m  SELECT `cart_items`.* FROM `cart_items`  WHERE `cart_items`.`cart_id` = 1
+  Rendered cart/_cart.html.erb (1.1ms)
+Completed 200 OK in 49ms (Views: 46.5ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/cart/add?id=1" for 127.0.0.1 at 2016-05-09 10:24:12 +0200
+Processing by CartController#add as HTML
+  Parameters: {"authenticity_token"=>"cvb6Yxbdhwt6EhP2okWhbmk7hVnOFG58mY8N9KqiTeo=", "id"=>"1"}
+  [1m[36mCart Load (0.5ms)[0m  [1mSELECT  `carts`.* FROM `carts`  WHERE `carts`.`id` = 1 LIMIT 1[0m
+  [1m[35mFilm Load (0.3ms)[0m  SELECT  `films`.* FROM `films`  WHERE `films`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `films`.* FROM `films`  WHERE `films`.`id` = 1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `cart_items`  WHERE `cart_items`.`cart_id` = 1 AND `cart_items`.`film_id` = 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cart_items` (`amount`, `cart_id`, `created_at`, `film_id`, `price`, `updated_at`) VALUES (1, 1, '2016-05-09 08:24:12', 1, 40.0, '2016-05-09 08:24:12')
+  [1m[36m (179.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mFilm Load (0.3ms)[0m  SELECT  `films`.* FROM `films`  WHERE `films`.`id` = 1 LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 198ms (ActiveRecord: 181.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-05-09 10:24:12 +0200
+Processing by CatalogController#index as HTML
+  [1m[36mCart Load (0.2ms)[0m  [1mSELECT  `carts`.* FROM `carts`  WHERE `carts`.`id` = 1 LIMIT 1[0m
+  [1m[35mFilm Load (0.3ms)[0m  SELECT  `films`.* FROM `films`   ORDER BY films.id desc LIMIT 5 OFFSET 0
+  [1m[36mHABTM_Directors Load (0.3ms)[0m  [1mSELECT `directors_films`.* FROM `directors_films`  WHERE `directors_films`.`film_id` IN (1)[0m
+  [1m[35mDirector Load (0.2ms)[0m  SELECT `directors`.* FROM `directors`  WHERE `directors`.`id` IN (1)
+  [1m[36mProducer Load (0.2ms)[0m  [1mSELECT `producers`.* FROM `producers`  WHERE `producers`.`id` IN (1)[0m
+  Rendered catalog/_films.html.erb (9.7ms)
+  Rendered catalog/index.html.erb within layouts/application (10.2ms)
+  Rendered cart/_cart_notice.html.erb (0.5ms)
+  [1m[35mCartItem Load (0.3ms)[0m  SELECT `cart_items`.* FROM `cart_items`  WHERE `cart_items`.`cart_id` = 1
+  [1m[36mFilm Load (0.2ms)[0m  [1mSELECT  `films`.* FROM `films`  WHERE `films`.`id` = 1 LIMIT 1[0m
+  Rendered cart/_item.html.erb (1.2ms)
+  Rendered cart/_cart.html.erb (24.7ms)
+Completed 200 OK in 80ms (Views: 77.4ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/admin/director.css?body=1" for 127.0.0.1 at 2016-05-09 10:24:12 +0200
+
+
+Started GET "/assets/about.css?body=1" for 127.0.0.1 at 2016-05-09 10:24:12 +0200
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2016-05-09 10:24:12 +0200
+
+
+Started GET "/assets/admin/producer.css?body=1" for 127.0.0.1 at 2016-05-09 10:24:12 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-05-09 10:24:12 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-05-09 10:24:12 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-05-09 10:24:12 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-05-09 10:24:12 +0200
+
+
+Started GET "/assets/about.js?body=1" for 127.0.0.1 at 2016-05-09 10:24:12 +0200
+
+
+Started GET "/assets/admin/director.js?body=1" for 127.0.0.1 at 2016-05-09 10:24:12 +0200
+
+
+Started GET "/assets/admin/producer.js?body=1" for 127.0.0.1 at 2016-05-09 10:24:12 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-05-09 10:24:12 +0200
+
+
+Started GET "/checkout" for 127.0.0.1 at 2016-05-09 10:24:17 +0200
+Processing by CheckoutController#index as HTML
+  [1m[35mCart Load (0.3ms)[0m  SELECT  `carts`.* FROM `carts`  WHERE `carts`.`id` = 1 LIMIT 1
+  [1m[36mFilm Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `films` INNER JOIN `cart_items` ON `films`.`id` = `cart_items`.`film_id` WHERE `cart_items`.`cart_id` = 1 LIMIT 1[0m
+  Rendered checkout/index.html.erb within layouts/application (99.6ms)
+  [1m[35mCartItem Load (0.3ms)[0m  SELECT `cart_items`.* FROM `cart_items`  WHERE `cart_items`.`cart_id` = 1
+  [1m[36mFilm Load (0.2ms)[0m  [1mSELECT  `films`.* FROM `films`  WHERE `films`.`id` = 1 LIMIT 1[0m
+  Rendered cart/_item.html.erb (1.2ms)
+  Rendered cart/_cart.html.erb (3.9ms)
+Completed 200 OK in 158ms (Views: 149.7ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/checkout/submit_order" for 127.0.0.1 at 2016-05-09 10:24:37 +0200
+Processing by CheckoutController#submit_order as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cvb6Yxbdhwt6EhP2okWhbmk7hVnOFG58mY8N9KqiTeo=", "order"=>{"email"=>"joseantonio.caravacadiosdado@alum.uca.es", "phone_number"=>"680603491", "ship_to_first_name"=>"juan", "ship_to_last_name"=>"boubeta", "ship_to_address"=>"owidbs", "ship_to_city"=>"asid", "ship_to_postal_code"=>"11403", "ship_to_country_code"=>"af", "card_type"=>"Visa", "card_expiration_month"=>"1", "card_expiration_year"=>"2018", "card_number"=>"4007000000027", "card_verification_value"=>"000"}, "cart"=>{"id"=>"1"}, "commit"=>"Procesar pedido"}
+  [1m[35mCart Load (0.2ms)[0m  SELECT  `carts`.* FROM `carts`  WHERE `carts`.`id` = 1 LIMIT 1
+  [1m[36mCartItem Load (0.3ms)[0m  [1mSELECT `cart_items`.* FROM `cart_items`  WHERE `cart_items`.`cart_id` = 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `orders` (`created_at`, `customer_ip`, `email`, `phone_number`, `ship_to_address`, `ship_to_city`, `ship_to_country_code`, `ship_to_first_name`, `ship_to_last_name`, `ship_to_postal_code`, `status`, `updated_at`) VALUES ('2016-05-09 08:24:37', '127.0.0.1', 'joseantonio.caravacadiosdado@alum.uca.es', '680603491', 'owidbs', 'asid', 'AF', 'juan', 'boubeta', '11403', 'abierto', '2016-05-09 08:24:37')[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `order_items` (`amount`, `created_at`, `film_id`, `order_id`, `price`, `updated_at`) VALUES (1, '2016-05-09 08:24:37', 1, 1, 40.0, '2016-05-09 08:24:37')
+  [1m[36m (161.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE `orders` SET `status` = 'procesado', `updated_at` = '2016-05-09 08:24:40' WHERE `orders`.`id` = 1[0m
+  [1m[35m (102.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (19.6ms)[0m  DELETE FROM `cart_items` WHERE `cart_items`.`id` = 1
+  [1m[36m (78.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/checkout/thank_you
+Completed 302 Found in 3674ms (ActiveRecord: 364.6ms)
+
+
+Started GET "/checkout/thank_you" for 127.0.0.1 at 2016-05-09 10:24:40 +0200
+Processing by CheckoutController#thank_you as HTML
+  Rendered checkout/thank_you.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 47ms (Views: 46.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/about.css?body=1" for 127.0.0.1 at 2016-05-09 10:24:41 +0200
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2016-05-09 10:24:41 +0200
+
+
+Started GET "/assets/admin/producer.css?body=1" for 127.0.0.1 at 2016-05-09 10:24:41 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-05-09 10:24:41 +0200
+
+
+Started GET "/assets/admin/director.css?body=1" for 127.0.0.1 at 2016-05-09 10:24:41 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-05-09 10:24:41 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-05-09 10:24:41 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-05-09 10:24:41 +0200
+
+
+Started GET "/assets/about.js?body=1" for 127.0.0.1 at 2016-05-09 10:24:41 +0200
+
+
+Started GET "/assets/admin/director.js?body=1" for 127.0.0.1 at 2016-05-09 10:24:41 +0200
+
+
+Started GET "/assets/admin/producer.js?body=1" for 127.0.0.1 at 2016-05-09 10:24:41 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-05-09 10:24:41 +0200
+
+
+Started GET "/admin/order" for 127.0.0.1 at 2016-05-09 10:24:48 +0200
+Processing by Admin::OrderController#index as HTML
+  [1m[35mOrder Load (0.2ms)[0m  SELECT  `orders`.* FROM `orders`  LIMIT 10 OFFSET 0
+  [1m[36mOrderItem Load (0.2ms)[0m  [1mSELECT `order_items`.* FROM `order_items`  WHERE `order_items`.`order_id` = 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `films` INNER JOIN `order_items` ON `films`.`id` = `order_items`.`film_id` WHERE `order_items`.`order_id` = 1
+  Rendered admin/order/_navigation.html.erb (0.8ms)
+  Rendered admin/order/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 48ms (Views: 47.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/admin/order?id=abierto" for 127.0.0.1 at 2016-05-09 10:24:50 +0200
+Processing by Admin::OrderController#index as HTML
+  Parameters: {"id"=>"abierto"}
+  [1m[36mOrder Load (0.4ms)[0m  [1mSELECT  `orders`.* FROM `orders`  WHERE (status = 'abierto') LIMIT 10 OFFSET 0[0m
+  Rendered admin/order/_navigation.html.erb (1.7ms)
+  Rendered admin/order/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 72ms (Views: 70.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin/order?id=procesado" for 127.0.0.1 at 2016-05-09 10:24:51 +0200
+Processing by Admin::OrderController#index as HTML
+  Parameters: {"id"=>"procesado"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT  `orders`.* FROM `orders`  WHERE (status = 'procesado') LIMIT 10 OFFSET 0
+  [1m[36mOrderItem Load (0.3ms)[0m  [1mSELECT `order_items`.* FROM `order_items`  WHERE `order_items`.`order_id` = 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `films` INNER JOIN `order_items` ON `films`.`id` = `order_items`.`film_id` WHERE `order_items`.`order_id` = 1
+  Rendered admin/order/_navigation.html.erb (0.7ms)
+  Rendered admin/order/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 46ms (Views: 44.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/admin/order?id=cerrado" for 127.0.0.1 at 2016-05-09 10:24:52 +0200
+Processing by Admin::OrderController#index as HTML
+  Parameters: {"id"=>"cerrado"}
+  [1m[36mOrder Load (0.5ms)[0m  [1mSELECT  `orders`.* FROM `orders`  WHERE (status = 'cerrado') LIMIT 10 OFFSET 0[0m
+  Rendered admin/order/_navigation.html.erb (2.1ms)
+  Rendered admin/order/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 57ms (Views: 55.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/order?id=fallido" for 127.0.0.1 at 2016-05-09 10:24:53 +0200
+Processing by Admin::OrderController#index as HTML
+  Parameters: {"id"=>"fallido"}
+  [1m[35mOrder Load (0.2ms)[0m  SELECT  `orders`.* FROM `orders`  WHERE (status = 'fallido') LIMIT 10 OFFSET 0
+  Rendered admin/order/_navigation.html.erb (0.8ms)
+  Rendered admin/order/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 44ms (Views: 43.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/order?id=" for 127.0.0.1 at 2016-05-09 10:24:54 +0200
+Processing by Admin::OrderController#index as HTML
+  Parameters: {"id"=>""}
+  [1m[36mOrder Load (0.2ms)[0m  [1mSELECT  `orders`.* FROM `orders`  LIMIT 10 OFFSET 0[0m
+  [1m[35mOrderItem Load (0.2ms)[0m  SELECT `order_items`.* FROM `order_items`  WHERE `order_items`.`order_id` = 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `films` INNER JOIN `order_items` ON `films`.`id` = `order_items`.`film_id` WHERE `order_items`.`order_id` = 1[0m
+  Rendered admin/order/_navigation.html.erb (0.6ms)
+  Rendered admin/order/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 51ms (Views: 49.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/admin/order/show/1" for 127.0.0.1 at 2016-05-09 10:24:56 +0200
+Processing by Admin::OrderController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mOrder Load (0.4ms)[0m  SELECT  `orders`.* FROM `orders`  WHERE `orders`.`id` = 1 LIMIT 1
+  [1m[36mOrderItem Load (0.4ms)[0m  [1mSELECT `order_items`.* FROM `order_items`  WHERE `order_items`.`order_id` = 1[0m
+  [1m[35mFilm Load (0.5ms)[0m  SELECT  `films`.* FROM `films`  WHERE `films`.`id` = 1 LIMIT 1
+  Rendered admin/order/_navigation.html.erb (1.1ms)
+  Rendered admin/order/show.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 51ms (Views: 48.4ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/admin/order/close?id=1" for 127.0.0.1 at 2016-05-09 10:25:02 +0200
+Processing by Admin::OrderController#close as HTML
+  Parameters: {"authenticity_token"=>"cvb6Yxbdhwt6EhP2okWhbmk7hVnOFG58mY8N9KqiTeo=", "id"=>"1"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT  `orders`.* FROM `orders`  WHERE `orders`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mOrderItem Load (0.3ms)[0m  [1mSELECT `order_items`.* FROM `order_items`  WHERE `order_items`.`order_id` = 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE `orders` SET `status` = 'cerrado', `updated_at` = '2016-05-09 08:25:02' WHERE `orders`.`id` = 1
+  [1m[36m (138.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/admin/order
+Completed 302 Found in 145ms (ActiveRecord: 139.6ms)
+
+
+Started GET "/admin/order" for 127.0.0.1 at 2016-05-09 10:25:02 +0200
+Processing by Admin::OrderController#index as HTML
+  [1m[35mOrder Load (0.5ms)[0m  SELECT  `orders`.* FROM `orders`  LIMIT 10 OFFSET 0
+  [1m[36mOrderItem Load (0.4ms)[0m  [1mSELECT `order_items`.* FROM `order_items`  WHERE `order_items`.`order_id` = 1[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM `films` INNER JOIN `order_items` ON `films`.`id` = `order_items`.`film_id` WHERE `order_items`.`order_id` = 1
+  Rendered admin/order/_navigation.html.erb (3.8ms)
+  Rendered admin/order/index.html.erb within layouts/application (14.5ms)
+Completed 200 OK in 73ms (Views: 70.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/about.css?body=1" for 127.0.0.1 at 2016-05-09 10:25:03 +0200
+
+
+Started GET "/assets/admin/director.css?body=1" for 127.0.0.1 at 2016-05-09 10:25:03 +0200
+
+
+Started GET "/assets/admin/producer.css?body=1" for 127.0.0.1 at 2016-05-09 10:25:03 +0200
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2016-05-09 10:25:03 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-05-09 10:25:03 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-05-09 10:25:03 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-05-09 10:25:03 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-05-09 10:25:03 +0200
+
+
+Started GET "/assets/about.js?body=1" for 127.0.0.1 at 2016-05-09 10:25:03 +0200
+
+
+Started GET "/assets/admin/director.js?body=1" for 127.0.0.1 at 2016-05-09 10:25:03 +0200
+
+
+Started GET "/assets/admin/producer.js?body=1" for 127.0.0.1 at 2016-05-09 10:25:03 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-05-09 10:25:03 +0200
+
+
+Started GET "/admin/order?id=abierto" for 127.0.0.1 at 2016-05-09 10:25:04 +0200
+Processing by Admin::OrderController#index as HTML
+  Parameters: {"id"=>"abierto"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT  `orders`.* FROM `orders`  WHERE (status = 'abierto') LIMIT 10 OFFSET 0[0m
+  Rendered admin/order/_navigation.html.erb (0.7ms)
+  Rendered admin/order/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 46ms (Views: 45.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/order?id=procesado" for 127.0.0.1 at 2016-05-09 10:25:05 +0200
+Processing by Admin::OrderController#index as HTML
+  Parameters: {"id"=>"procesado"}
+  [1m[35mOrder Load (0.2ms)[0m  SELECT  `orders`.* FROM `orders`  WHERE (status = 'procesado') LIMIT 10 OFFSET 0
+  Rendered admin/order/_navigation.html.erb (0.8ms)
+  Rendered admin/order/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 52ms (Views: 51.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/order?id=cerrado" for 127.0.0.1 at 2016-05-09 10:25:06 +0200
+Processing by Admin::OrderController#index as HTML
+  Parameters: {"id"=>"cerrado"}
+  [1m[36mOrder Load (0.2ms)[0m  [1mSELECT  `orders`.* FROM `orders`  WHERE (status = 'cerrado') LIMIT 10 OFFSET 0[0m
+  [1m[35mOrderItem Load (0.2ms)[0m  SELECT `order_items`.* FROM `order_items`  WHERE `order_items`.`order_id` = 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `films` INNER JOIN `order_items` ON `films`.`id` = `order_items`.`film_id` WHERE `order_items`.`order_id` = 1[0m
+  Rendered admin/order/_navigation.html.erb (0.7ms)
+  Rendered admin/order/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 52ms (Views: 50.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/admin/order?id=fallido" for 127.0.0.1 at 2016-05-09 10:25:07 +0200
+Processing by Admin::OrderController#index as HTML
+  Parameters: {"id"=>"fallido"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT  `orders`.* FROM `orders`  WHERE (status = 'fallido') LIMIT 10 OFFSET 0
+  Rendered admin/order/_navigation.html.erb (1.0ms)
+  Rendered admin/order/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 43ms (Views: 42.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/order?id=cerrado" for 127.0.0.1 at 2016-05-09 10:25:08 +0200
+Processing by Admin::OrderController#index as HTML
+  Parameters: {"id"=>"cerrado"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT  `orders`.* FROM `orders`  WHERE (status = 'cerrado') LIMIT 10 OFFSET 0[0m
+  [1m[35mOrderItem Load (0.3ms)[0m  SELECT `order_items`.* FROM `order_items`  WHERE `order_items`.`order_id` = 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `films` INNER JOIN `order_items` ON `films`.`id` = `order_items`.`film_id` WHERE `order_items`.`order_id` = 1[0m
+  Rendered admin/order/_navigation.html.erb (0.8ms)
+  Rendered admin/order/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 50ms (Views: 48.3ms | ActiveRecord: 0.8ms)

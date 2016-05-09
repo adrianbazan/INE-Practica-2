@@ -3,7 +3,7 @@ class CheckoutController < ApplicationController
 
   def index
     @order = Order.new
-    @page_title = 'Formulario de pago'
+    @page_title = 'Facturación'
     if @cart.films.empty?
       flash[:notice] = '¡Tu carrito esta vacío! ' +
                        'Por favor añade una película a tu carrito antes de proceder con el pago.'
@@ -17,7 +17,7 @@ class CheckoutController < ApplicationController
     @order.ship_to_country_code = @order.ship_to_country_code.upcase
     @order.customer_ip = request.remote_ip
     @order.status = 'abierto'
-    @page_title = 'Formulario de pago'
+    @page_title = 'Facturación'
     populate_order
 
     if @order.save
@@ -36,7 +36,7 @@ class CheckoutController < ApplicationController
   end
 
   def thank_you
-    @page_title = 'Thank you.'
+    @page_title = '¡Gracias!'
   end
 
   private
