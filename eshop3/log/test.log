@@ -42129,3 +42129,1299 @@ Redirected to http://test.host/admin/director/show/1
 Completed 302 Found in 3ms (ActiveRecord: 0.8ms)
   [1m[36mDirector Load (0.2ms)[0m  [1mSELECT  `directors`.* FROM `directors`  WHERE `directors`.`id` = 1 LIMIT 1[0m
   [1m[35m (38.2ms)[0m  ROLLBACK
+  [1m[36m (17.3ms)[0m  [1mCREATE TABLE `cart_items` (`id` int(11) auto_increment PRIMARY KEY, `film_id` int(11), `cart_id` int(11), `price` float, `amount` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (4.0ms)[0m  CREATE TABLE `carts` (`id` int(11) auto_increment PRIMARY KEY, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (10.1ms)[0m  [1mCREATE TABLE `directors` (`id` int(11) auto_increment PRIMARY KEY, `first_name` varchar(255), `last_name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (7.3ms)[0m  CREATE TABLE `directors_films` (`id` int(11) auto_increment PRIMARY KEY, `director_id` int(11) NOT NULL, `film_id` int(11) NOT NULL, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (31.1ms)[0m  [1mCREATE  INDEX `fk_directors_films_directors` USING btree ON `directors_films` (`director_id`) [0m
+  [1m[35m (17.7ms)[0m  CREATE  INDEX `fk_directors_films_films` USING btree ON `directors_films` (`film_id`) 
+  [1m[36m (15.0ms)[0m  [1mCREATE TABLE `films` (`id` int(11) auto_increment PRIMARY KEY, `title` varchar(255) NOT NULL, `producer_id` int(11) NOT NULL, `produced_at` datetime, `cod` varchar(13), `blurb` text, `duration` int(11), `price` float, `created_at` datetime, `updated_at` datetime, `cover_image_file_name` varchar(255), `cover_image_content_type` varchar(255), `cover_image_file_size` int(11), `cover_image_updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (33.6ms)[0m  CREATE  INDEX `fk_films_producers` USING btree ON `films` (`producer_id`) 
+  [1m[36m (22.9ms)[0m  [1mCREATE TABLE `order_items` (`id` int(11) auto_increment PRIMARY KEY, `film_id` int(11), `order_id` int(11), `price` float, `amount` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (11.3ms)[0m  CREATE  INDEX `fk_order_items_orders` USING btree ON `order_items` (`order_id`) 
+  [1m[36m (5.0ms)[0m  [1mCREATE TABLE `orders` (`id` int(11) auto_increment PRIMARY KEY, `email` varchar(255), `phone_number` varchar(255), `ship_to_first_name` varchar(255), `ship_to_last_name` varchar(255), `ship_to_address` varchar(255), `ship_to_city` varchar(255), `ship_to_postal_code` varchar(255), `ship_to_country_code` varchar(255), `customer_ip` varchar(255), `status` varchar(255), `error_message` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (4.3ms)[0m  CREATE TABLE `producers` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (5.2ms)[0m  [1mCREATE TABLE `users` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255) NOT NULL, `login` varchar(255) NOT NULL, `email` varchar(255) NOT NULL, `crypted_password` varchar(255) NOT NULL, `password_salt` varchar(255) NOT NULL, `persistence_token` varchar(255) NOT NULL, `perishable_token` varchar(255) NOT NULL, `login_count` int(11) DEFAULT 0 NOT NULL, `failed_login_count` int(11) DEFAULT 0 NOT NULL, `last_request_at` datetime, `current_login_at` datetime, `last_login_at` datetime, `current_login_ip` varchar(255), `last_login_ip` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (4.3ms)[0m  CREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB
+  [1m[36m (12.9ms)[0m  [1mCREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) [0m
+  [1m[35m (0.2ms)[0m  SELECT version FROM `schema_migrations`
+  [1m[36m (1.9ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20160510122949')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20160411083206')
+  [1m[36m (1.7ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20160403125624')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20130304165555')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20160412123806')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20160403125625')
+  [1m[36m (1.8ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20160426124835')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20160426124750')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20130304165926')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+Unable to load directors_film, underlying cause No such file to load -- directors_film 
+
+ /home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `block in require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:232:in `load_dependency'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:348:in `require_or_load'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:307:in `depend_on'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:225:in `require_dependency'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activerecord-4.1.1/lib/active_record/fixtures.rb:862:in `try_to_load_dependency'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activerecord-4.1.1/lib/active_record/fixtures.rb:881:in `block in require_fixture_classes'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activerecord-4.1.1/lib/active_record/fixtures.rb:879:in `each'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activerecord-4.1.1/lib/active_record/fixtures.rb:879:in `require_fixture_classes'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activerecord-4.1.1/lib/active_record/fixtures.rb:857:in `fixtures'
+/home/david/projects/INE-Practica-2/eshop3/test/test_helper.rb:10:in `<class:TestCase>'
+/home/david/projects/INE-Practica-2/eshop3/test/test_helper.rb:5:in `<top (required)>'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `block in require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:232:in `load_dependency'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `require'
+/home/david/projects/INE-Practica-2/eshop3/test/integration/user_test.rb:1:in `<top (required)>'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `block in require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:232:in `load_dependency'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/test_unit/sub_test_task.rb:114:in `block (3 levels) in define'
+/home/david/.rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/test_unit/sub_test_task.rb:114:in `each'
+/home/david/.rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/test_unit/sub_test_task.rb:114:in `block (2 levels) in define'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/file_list.rb:80:in `each'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/file_list.rb:80:in `each'
+/home/david/.rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/test_unit/sub_test_task.rb:113:in `block in define'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:248:in `call'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:248:in `block in execute'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:243:in `each'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:243:in `execute'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:187:in `block in invoke_with_call_chain'
+/home/david/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:180:in `invoke_with_call_chain'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:173:in `invoke'
+/home/david/.rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/test_unit/sub_test_task.rb:20:in `invoke_rake_task'
+/home/david/.rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/test_unit/testing.rake:8:in `block in <top (required)>'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:248:in `call'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:248:in `block in execute'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:243:in `each'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:243:in `execute'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:187:in `block in invoke_with_call_chain'
+/home/david/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:180:in `invoke_with_call_chain'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:173:in `invoke'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:150:in `invoke_task'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:106:in `block (2 levels) in top_level'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:106:in `each'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:106:in `block in top_level'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:115:in `run_with_threads'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:100:in `top_level'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:78:in `block in run'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:176:in `standard_exception_handling'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:75:in `run'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/bin/rake:33:in `<top (required)>'
+/home/david/.rvm/gems/ruby-2.1.2/bin/rake:23:in `load'
+/home/david/.rvm/gems/ruby-2.1.2/bin/rake:23:in `<main>'
+/home/david/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+/home/david/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+  [1m[36m (0.2ms)[0m  [1mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.2ms)[0m  SET FOREIGN_KEY_CHECKS = 0
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM `films`
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (1, 'Pro Rails E-Commerce', 1, '2016-05-10', 45.0, 123, 'describe1', 10, '2016-05-10 09:43:17', '2016-05-10 09:43:17')[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (2, 'Pro Rails E-Commerce 2nd Edition', 1, '2016-05-10', 45.0, 124, 'describe2', 10, '2016-05-10 09:43:17', '2016-05-10 09:43:17')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (3, 'Pro Rails E-Commerce 3rd Edition', 1, '2016-05-10', 85, 125, 'describe3', 10, '2016-05-10 09:43:17', '2016-05-10 09:43:17')[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (4, 'Pro Rails E-Commerce 4th Edition', 1, '2016-05-10', 105, 126, 'describe4', 10, '2016-05-10 09:43:17', '2016-05-10 09:43:17')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (5, 'Pro Rails E-Commerce 5th Edition', 1, '2016-05-10', 125, 127, 'describe5', 10, '2016-05-10 09:43:17', '2016-05-10 09:43:17')[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (6, 'Pro Rails E-Commerce 6th Edition', 1, '2016-05-10', 145, 128, 'describe6', 10, '2016-05-10 09:43:17', '2016-05-10 09:43:17')
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (7, 'Pro Rails E-Commerce 7th Edition', 2, '2016-05-10', 165, 129, 'describe7', 10, '2016-05-10 09:43:17', '2016-05-10 09:43:17')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (8, 'Ruby for Dummies', 1, '2016-05-10', 185, 130, 'describe8', 10, '2016-05-10 09:43:17', '2016-05-10 09:43:17')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (9, 'Pride and Prejudice', 2, '2016-05-10', 40, 131, 'describe9', 10, '2016-05-10 09:43:17', '2016-05-10 09:43:17')[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (10, 'The Idiot', 2, '2016-05-10', 40, 132, 'describe10', 10, '2016-05-10 09:43:17', '2016-05-10 09:43:17')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM `producers`[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `producers` (`id`, `name`, `created_at`, `updated_at`) VALUES (1, 'Joel', '2016-05-10 09:43:17', '2016-05-10 09:43:17')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `producers` (`id`, `name`, `created_at`, `updated_at`) VALUES (2, 'Jeremy', '2016-05-10 09:43:17', '2016-05-10 09:43:17')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `producers` (`id`, `name`, `created_at`, `updated_at`) VALUES (3, 'Jarkko', '2016-05-10 09:43:17', '2016-05-10 09:43:17')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `producers` (`id`, `name`, `created_at`, `updated_at`) VALUES (4, 'Christian', '2016-05-10 09:43:17', '2016-05-10 09:43:17')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `producers` (`id`, `name`, `created_at`, `updated_at`) VALUES (5, 'Leo', '2016-05-10 09:43:17', '2016-05-10 09:43:17')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `producers` (`id`, `name`, `created_at`, `updated_at`) VALUES (6, 'Apress', '2016-05-10 09:43:17', '2016-05-10 09:43:17')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM `directors`
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `directors` (`id`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES (1, 'Joel', 'Spolsky', '2016-05-10 09:43:17', '2016-05-10 09:43:17')[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `directors` (`id`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES (2, 'Jeremy', 'Keith', '2016-05-10 09:43:17', '2016-05-10 09:43:17')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `directors` (`id`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES (3, 'Jarkko', 'Laine', '2016-05-10 09:43:17', '2016-05-10 09:43:17')[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `directors` (`id`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES (4, 'Christian', 'Hellsten', '2016-05-10 09:43:17', '2016-05-10 09:43:17')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `directors` (`id`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES (5, 'Leo', 'Tolstoy', '2016-05-10 09:43:17', '2016-05-10 09:43:17')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM `directors_films`
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (1, 1)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (2, 2)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (2, 3)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (2, 4)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (2, 5)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (2, 6)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (2, 7)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (3, 8)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (4, 9)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (5, 10)
+  [1m[36m (23.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  SET FOREIGN_KEY_CHECKS = 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+---------------------------
+UserTest: test_user_account
+---------------------------
+Started GET "/user/new" for 127.0.0.1 at 2016-05-10 11:43:17 +0200
+Processing by UserController#new as HTML
+ApplicationController::current_user
+ApplicationController::current_user_session
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `users`
+  Rendered user/_form.html.erb (14.5ms)
+  Rendered user/new.html.erb within layouts/application (19.9ms)
+ApplicationController::current_user
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `users`[0m
+Completed 200 OK in 80ms (Views: 51.9ms | ActiveRecord: 1.5ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Unable to load directors_film, underlying cause No such file to load -- directors_film 
+
+ /home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `block in require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:232:in `load_dependency'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:348:in `require_or_load'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:307:in `depend_on'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:225:in `require_dependency'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activerecord-4.1.1/lib/active_record/fixtures.rb:862:in `try_to_load_dependency'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activerecord-4.1.1/lib/active_record/fixtures.rb:881:in `block in require_fixture_classes'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activerecord-4.1.1/lib/active_record/fixtures.rb:879:in `each'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activerecord-4.1.1/lib/active_record/fixtures.rb:879:in `require_fixture_classes'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activerecord-4.1.1/lib/active_record/fixtures.rb:857:in `fixtures'
+/home/david/projects/INE-Practica-2/eshop3/test/test_helper.rb:10:in `<class:TestCase>'
+/home/david/projects/INE-Practica-2/eshop3/test/test_helper.rb:5:in `<top (required)>'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `block in require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:232:in `load_dependency'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `require'
+/home/david/projects/INE-Practica-2/eshop3/test/integration/user_test.rb:1:in `<top (required)>'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `block in require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:232:in `load_dependency'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/test_unit/sub_test_task.rb:114:in `block (3 levels) in define'
+/home/david/.rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/test_unit/sub_test_task.rb:114:in `each'
+/home/david/.rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/test_unit/sub_test_task.rb:114:in `block (2 levels) in define'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/file_list.rb:80:in `each'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/file_list.rb:80:in `each'
+/home/david/.rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/test_unit/sub_test_task.rb:113:in `block in define'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:248:in `call'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:248:in `block in execute'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:243:in `each'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:243:in `execute'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:187:in `block in invoke_with_call_chain'
+/home/david/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:180:in `invoke_with_call_chain'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:173:in `invoke'
+/home/david/.rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/test_unit/sub_test_task.rb:20:in `invoke_rake_task'
+/home/david/.rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/test_unit/testing.rake:8:in `block in <top (required)>'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:248:in `call'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:248:in `block in execute'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:243:in `each'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:243:in `execute'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:187:in `block in invoke_with_call_chain'
+/home/david/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:180:in `invoke_with_call_chain'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:173:in `invoke'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:150:in `invoke_task'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:106:in `block (2 levels) in top_level'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:106:in `each'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:106:in `block in top_level'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:115:in `run_with_threads'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:100:in `top_level'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:78:in `block in run'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:176:in `standard_exception_handling'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:75:in `run'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/bin/rake:33:in `<top (required)>'
+/home/david/.rvm/gems/ruby-2.1.2/bin/rake:23:in `load'
+/home/david/.rvm/gems/ruby-2.1.2/bin/rake:23:in `<main>'
+/home/david/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+/home/david/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+  [1m[35m (0.2ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.1ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM `films`[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (1, 'Pro Rails E-Commerce', 1, '2016-05-10', 45.0, 123, 'describe1', 10, '2016-05-10 09:45:41', '2016-05-10 09:45:41')
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (2, 'Pro Rails E-Commerce 2nd Edition', 1, '2016-05-10', 45.0, 124, 'describe2', 10, '2016-05-10 09:45:41', '2016-05-10 09:45:41')[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (3, 'Pro Rails E-Commerce 3rd Edition', 1, '2016-05-10', 85, 125, 'describe3', 10, '2016-05-10 09:45:41', '2016-05-10 09:45:41')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (4, 'Pro Rails E-Commerce 4th Edition', 1, '2016-05-10', 105, 126, 'describe4', 10, '2016-05-10 09:45:41', '2016-05-10 09:45:41')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (5, 'Pro Rails E-Commerce 5th Edition', 1, '2016-05-10', 125, 127, 'describe5', 10, '2016-05-10 09:45:41', '2016-05-10 09:45:41')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (6, 'Pro Rails E-Commerce 6th Edition', 1, '2016-05-10', 145, 128, 'describe6', 10, '2016-05-10 09:45:41', '2016-05-10 09:45:41')[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (7, 'Pro Rails E-Commerce 7th Edition', 2, '2016-05-10', 165, 129, 'describe7', 10, '2016-05-10 09:45:41', '2016-05-10 09:45:41')
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (8, 'Ruby for Dummies', 1, '2016-05-10', 185, 130, 'describe8', 10, '2016-05-10 09:45:41', '2016-05-10 09:45:41')[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (9, 'Pride and Prejudice', 2, '2016-05-10', 40, 131, 'describe9', 10, '2016-05-10 09:45:41', '2016-05-10 09:45:41')
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (10, 'The Idiot', 2, '2016-05-10', 40, 132, 'describe10', 10, '2016-05-10 09:45:41', '2016-05-10 09:45:41')[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM `producers`
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `producers` (`id`, `name`, `created_at`, `updated_at`) VALUES (1, 'Joel', '2016-05-10 09:45:41', '2016-05-10 09:45:41')[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `producers` (`id`, `name`, `created_at`, `updated_at`) VALUES (2, 'Jeremy', '2016-05-10 09:45:41', '2016-05-10 09:45:41')
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `producers` (`id`, `name`, `created_at`, `updated_at`) VALUES (3, 'Jarkko', '2016-05-10 09:45:41', '2016-05-10 09:45:41')[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `producers` (`id`, `name`, `created_at`, `updated_at`) VALUES (4, 'Christian', '2016-05-10 09:45:41', '2016-05-10 09:45:41')
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `producers` (`id`, `name`, `created_at`, `updated_at`) VALUES (5, 'Leo', '2016-05-10 09:45:41', '2016-05-10 09:45:41')[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `producers` (`id`, `name`, `created_at`, `updated_at`) VALUES (6, 'Apress', '2016-05-10 09:45:41', '2016-05-10 09:45:41')
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM `directors`[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `directors` (`id`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES (1, 'Joel', 'Spolsky', '2016-05-10 09:45:41', '2016-05-10 09:45:41')
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO `directors` (`id`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES (2, 'Jeremy', 'Keith', '2016-05-10 09:45:41', '2016-05-10 09:45:41')[0m
+  [1m[35mFixture Insert (0.5ms)[0m  INSERT INTO `directors` (`id`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES (3, 'Jarkko', 'Laine', '2016-05-10 09:45:41', '2016-05-10 09:45:41')
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `directors` (`id`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES (4, 'Christian', 'Hellsten', '2016-05-10 09:45:41', '2016-05-10 09:45:41')[0m
+  [1m[35mFixture Insert (0.6ms)[0m  INSERT INTO `directors` (`id`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES (5, 'Leo', 'Tolstoy', '2016-05-10 09:45:41', '2016-05-10 09:45:41')
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM `directors_films`[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (1, 1)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (2, 2)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (2, 3)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (2, 4)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (2, 5)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (2, 6)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (2, 7)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (3, 8)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (4, 9)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (5, 10)[0m
+  [1m[35m (12.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------
+UserTest: test_user_account
+---------------------------
+Started GET "/user/new" for 127.0.0.1 at 2016-05-10 11:45:41 +0200
+Processing by UserController#new as HTML
+ApplicationController::current_user
+ApplicationController::current_user_session
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `users`[0m
+  Rendered user/_form.html.erb (15.0ms)
+  Rendered user/new.html.erb within layouts/application (20.6ms)
+ApplicationController::current_user
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `users`
+Completed 200 OK in 83ms (Views: 45.3ms | ActiveRecord: 1.5ms)
+Started POST "/user/create" for 127.0.0.1 at 2016-05-10 11:45:41 +0200
+Processing by UserController#create as HTML
+  Parameters: {"user"=>{"name"=>"George Smith", "login"=>"george", "email"=>"george@emporium.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'george@emporium.com' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`login` = 'george' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`persistence_token` = BINARY '50aa76c7f2644e18951bbe2920cd42d519f34d2e3ec77f739a3e1de9a0fc7a49b0cb3b056a552f347f81a26490234647c1dd41dfae5a359547bc76cbc82c1383' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`name` = BINARY 'George Smith' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`login` = BINARY 'george' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = BINARY 'george@emporium.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`created_at`, `crypted_password`, `current_login_at`, `current_login_ip`, `email`, `last_request_at`, `login`, `login_count`, `name`, `password_salt`, `perishable_token`, `persistence_token`, `updated_at`) VALUES ('2016-05-10 09:45:41', 'a95f0afdea6505d8f9bbe55cc94e6581232d046cd8d516b55a11cec77f0ce4e04e1bf806218ee9d7cc3239512209b5b77e0823bd90691ac9721dbf94cedd421e', '2016-05-10 09:45:41', '127.0.0.1', 'george@emporium.com', '2016-05-10 09:45:41', 'george', 1, 'George Smith', '1k2KFzIPRQ0CLo9aDHq', 'LpVMwtF8o49LSbFAnl7', '50aa76c7f2644e18951bbe2920cd42d519f34d2e3ec77f739a3e1de9a0fc7a49b0cb3b056a552f347f81a26490234647c1dd41dfae5a359547bc76cbc82c1383', '2016-05-10 09:45:41')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/user/show
+Completed 302 Found in 21ms (ActiveRecord: 1.8ms)
+Started GET "/user/show" for 127.0.0.1 at 2016-05-10 11:45:41 +0200
+Processing by UserController#show as HTML
+ApplicationController::require_user
+ApplicationController::current_user
+ApplicationController::current_user_session
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`persistence_token` = '50aa76c7f2644e18951bbe2920cd42d519f34d2e3ec77f739a3e1de9a0fc7a49b0cb3b056a552f347f81a26490234647c1dd41dfae5a359547bc76cbc82c1383' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE `users` SET `last_request_at` = '2016-05-10 09:45:41', `perishable_token` = 'sKN6Di2dA74NX7RHtno', `updated_at` = '2016-05-10 09:45:41' WHERE `users`.`id` = 1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+ApplicationController::current_user_session
+ApplicationController::current_user
+  Rendered user/show.html.erb within layouts/application (1.4ms)
+ApplicationController::current_user
+ApplicationController::current_user
+Completed 200 OK in 13ms (Views: 3.4ms | ActiveRecord: 0.7ms)
+  [1m[35m (2.3ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Unable to load directors_film, underlying cause No such file to load -- directors_film 
+
+ /home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `block in require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:232:in `load_dependency'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:348:in `require_or_load'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:307:in `depend_on'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:225:in `require_dependency'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activerecord-4.1.1/lib/active_record/fixtures.rb:862:in `try_to_load_dependency'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activerecord-4.1.1/lib/active_record/fixtures.rb:881:in `block in require_fixture_classes'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activerecord-4.1.1/lib/active_record/fixtures.rb:879:in `each'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activerecord-4.1.1/lib/active_record/fixtures.rb:879:in `require_fixture_classes'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activerecord-4.1.1/lib/active_record/fixtures.rb:857:in `fixtures'
+/home/david/projects/INE-Practica-2/eshop3/test/test_helper.rb:10:in `<class:TestCase>'
+/home/david/projects/INE-Practica-2/eshop3/test/test_helper.rb:5:in `<top (required)>'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `block in require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:232:in `load_dependency'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `require'
+/home/david/projects/INE-Practica-2/eshop3/test/integration/user_test.rb:1:in `<top (required)>'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `block in require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:232:in `load_dependency'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/test_unit/sub_test_task.rb:114:in `block (3 levels) in define'
+/home/david/.rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/test_unit/sub_test_task.rb:114:in `each'
+/home/david/.rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/test_unit/sub_test_task.rb:114:in `block (2 levels) in define'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/file_list.rb:80:in `each'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/file_list.rb:80:in `each'
+/home/david/.rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/test_unit/sub_test_task.rb:113:in `block in define'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:248:in `call'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:248:in `block in execute'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:243:in `each'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:243:in `execute'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:187:in `block in invoke_with_call_chain'
+/home/david/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:180:in `invoke_with_call_chain'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:173:in `invoke'
+/home/david/.rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/test_unit/sub_test_task.rb:20:in `invoke_rake_task'
+/home/david/.rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/test_unit/testing.rake:8:in `block in <top (required)>'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:248:in `call'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:248:in `block in execute'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:243:in `each'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:243:in `execute'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:187:in `block in invoke_with_call_chain'
+/home/david/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:180:in `invoke_with_call_chain'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:173:in `invoke'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:150:in `invoke_task'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:106:in `block (2 levels) in top_level'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:106:in `each'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:106:in `block in top_level'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:115:in `run_with_threads'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:100:in `top_level'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:78:in `block in run'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:176:in `standard_exception_handling'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:75:in `run'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/bin/rake:33:in `<top (required)>'
+/home/david/.rvm/gems/ruby-2.1.2/bin/rake:23:in `load'
+/home/david/.rvm/gems/ruby-2.1.2/bin/rake:23:in `<main>'
+/home/david/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+/home/david/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+  [1m[35m (0.2ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.1ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mFixture Delete (4.1ms)[0m  [1mDELETE FROM `films`[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (1, 'Pro Rails E-Commerce', 1, '2016-05-10', 45.0, 123, 'describe1', 10, '2016-05-10 09:46:14', '2016-05-10 09:46:14')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (2, 'Pro Rails E-Commerce 2nd Edition', 1, '2016-05-10', 45.0, 124, 'describe2', 10, '2016-05-10 09:46:14', '2016-05-10 09:46:14')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (3, 'Pro Rails E-Commerce 3rd Edition', 1, '2016-05-10', 85, 125, 'describe3', 10, '2016-05-10 09:46:14', '2016-05-10 09:46:14')
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (4, 'Pro Rails E-Commerce 4th Edition', 1, '2016-05-10', 105, 126, 'describe4', 10, '2016-05-10 09:46:14', '2016-05-10 09:46:14')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (5, 'Pro Rails E-Commerce 5th Edition', 1, '2016-05-10', 125, 127, 'describe5', 10, '2016-05-10 09:46:14', '2016-05-10 09:46:14')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (6, 'Pro Rails E-Commerce 6th Edition', 1, '2016-05-10', 145, 128, 'describe6', 10, '2016-05-10 09:46:14', '2016-05-10 09:46:14')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (7, 'Pro Rails E-Commerce 7th Edition', 2, '2016-05-10', 165, 129, 'describe7', 10, '2016-05-10 09:46:14', '2016-05-10 09:46:14')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (8, 'Ruby for Dummies', 1, '2016-05-10', 185, 130, 'describe8', 10, '2016-05-10 09:46:14', '2016-05-10 09:46:14')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (9, 'Pride and Prejudice', 2, '2016-05-10', 40, 131, 'describe9', 10, '2016-05-10 09:46:14', '2016-05-10 09:46:14')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (10, 'The Idiot', 2, '2016-05-10', 40, 132, 'describe10', 10, '2016-05-10 09:46:14', '2016-05-10 09:46:14')[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM `producers`
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `producers` (`id`, `name`, `created_at`, `updated_at`) VALUES (1, 'Joel', '2016-05-10 09:46:14', '2016-05-10 09:46:14')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `producers` (`id`, `name`, `created_at`, `updated_at`) VALUES (2, 'Jeremy', '2016-05-10 09:46:14', '2016-05-10 09:46:14')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `producers` (`id`, `name`, `created_at`, `updated_at`) VALUES (3, 'Jarkko', '2016-05-10 09:46:14', '2016-05-10 09:46:14')[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `producers` (`id`, `name`, `created_at`, `updated_at`) VALUES (4, 'Christian', '2016-05-10 09:46:14', '2016-05-10 09:46:14')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `producers` (`id`, `name`, `created_at`, `updated_at`) VALUES (5, 'Leo', '2016-05-10 09:46:14', '2016-05-10 09:46:14')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `producers` (`id`, `name`, `created_at`, `updated_at`) VALUES (6, 'Apress', '2016-05-10 09:46:14', '2016-05-10 09:46:14')
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM `directors`[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `directors` (`id`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES (1, 'Joel', 'Spolsky', '2016-05-10 09:46:14', '2016-05-10 09:46:14')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `directors` (`id`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES (2, 'Jeremy', 'Keith', '2016-05-10 09:46:14', '2016-05-10 09:46:14')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `directors` (`id`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES (3, 'Jarkko', 'Laine', '2016-05-10 09:46:14', '2016-05-10 09:46:14')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `directors` (`id`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES (4, 'Christian', 'Hellsten', '2016-05-10 09:46:14', '2016-05-10 09:46:14')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `directors` (`id`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES (5, 'Leo', 'Tolstoy', '2016-05-10 09:46:14', '2016-05-10 09:46:14')
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM `directors_films`[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (1, 1)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (2, 2)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (2, 3)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (2, 4)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (2, 5)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (2, 6)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (2, 7)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (3, 8)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (4, 9)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (5, 10)[0m
+  [1m[35m (47.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------
+UserTest: test_user_account
+---------------------------
+Started GET "/user/new" for 127.0.0.1 at 2016-05-10 11:46:14 +0200
+Processing by UserController#new as HTML
+ApplicationController::current_user
+ApplicationController::current_user_session
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `users`[0m
+  Rendered user/_form.html.erb (14.1ms)
+  Rendered user/new.html.erb within layouts/application (19.5ms)
+ApplicationController::current_user
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `users`
+Completed 200 OK in 77ms (Views: 41.0ms | ActiveRecord: 1.5ms)
+Started POST "/user/create" for 127.0.0.1 at 2016-05-10 11:46:14 +0200
+Processing by UserController#create as HTML
+  Parameters: {"user"=>{"name"=>"George Smith", "login"=>"george", "email"=>"george@emporium.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'george@emporium.com' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`login` = 'george' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`persistence_token` = BINARY 'b2cf1bfd56c7c1773fe2b56f2356e6a73db8885d4c01991870e5145e6a85651bc951598b3941f3b21e38d78452b87e11bb1dd3e448d4a8778e64e15b7477a2dc' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`name` = BINARY 'George Smith' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`login` = BINARY 'george' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = BINARY 'george@emporium.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`created_at`, `crypted_password`, `current_login_at`, `current_login_ip`, `email`, `last_request_at`, `login`, `login_count`, `name`, `password_salt`, `perishable_token`, `persistence_token`, `updated_at`) VALUES ('2016-05-10 09:46:14', 'abd3f54936c07a63f23eb479467f742d9c264f5bef48ed7a5d53f194103eca22aab344cb17073ea03658278c637a920216df1ae6761a3c09f442675ec4b9196d', '2016-05-10 09:46:14', '127.0.0.1', 'george@emporium.com', '2016-05-10 09:46:14', 'george', 1, 'George Smith', 'cByyipSlndUpZxz0EQ', 'POasDaSNWKjFFQFymgq4', 'b2cf1bfd56c7c1773fe2b56f2356e6a73db8885d4c01991870e5145e6a85651bc951598b3941f3b21e38d78452b87e11bb1dd3e448d4a8778e64e15b7477a2dc', '2016-05-10 09:46:14')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/user/show
+Completed 302 Found in 20ms (ActiveRecord: 1.7ms)
+Started GET "/user/show" for 127.0.0.1 at 2016-05-10 11:46:14 +0200
+Processing by UserController#show as HTML
+ApplicationController::require_user
+ApplicationController::current_user
+ApplicationController::current_user_session
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`persistence_token` = 'b2cf1bfd56c7c1773fe2b56f2356e6a73db8885d4c01991870e5145e6a85651bc951598b3941f3b21e38d78452b87e11bb1dd3e448d4a8778e64e15b7477a2dc' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE `users` SET `last_request_at` = '2016-05-10 09:46:14', `perishable_token` = '8H3AAtLj7w7XmAwyvtm4', `updated_at` = '2016-05-10 09:46:14' WHERE `users`.`id` = 2
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+ApplicationController::current_user_session
+ApplicationController::current_user
+  Rendered user/show.html.erb within layouts/application (1.5ms)
+ApplicationController::current_user
+ApplicationController::current_user
+Completed 200 OK in 13ms (Views: 3.5ms | ActiveRecord: 0.7ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`login` = 'george' LIMIT 1
+Started GET "/user/show/?id=2" for 127.0.0.1 at 2016-05-10 11:46:14 +0200
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"2"}
+ApplicationController::require_user
+ApplicationController::current_user
+ApplicationController::current_user_session
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`persistence_token` = 'b2cf1bfd56c7c1773fe2b56f2356e6a73db8885d4c01991870e5145e6a85651bc951598b3941f3b21e38d78452b87e11bb1dd3e448d4a8778e64e15b7477a2dc' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2016-05-10 09:46:14', `perishable_token` = 'vrUt3weWUoqkUcU6XzQU', `updated_at` = '2016-05-10 09:46:14' WHERE `users`.`id` = 2[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+ApplicationController::current_user_session
+ApplicationController::current_user
+  Rendered user/show.html.erb within layouts/application (0.5ms)
+ApplicationController::current_user
+ApplicationController::current_user
+Completed 200 OK in 6ms (Views: 1.8ms | ActiveRecord: 0.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 2 LIMIT 1[0m
+Started GET "/user/edit?id=2" for 127.0.0.1 at 2016-05-10 11:46:14 +0200
+Processing by UserController#edit as HTML
+  Parameters: {"id"=>"2"}
+ApplicationController::require_user
+ApplicationController::current_user
+ApplicationController::current_user_session
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`persistence_token` = 'b2cf1bfd56c7c1773fe2b56f2356e6a73db8885d4c01991870e5145e6a85651bc951598b3941f3b21e38d78452b87e11bb1dd3e448d4a8778e64e15b7477a2dc' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE `users` SET `last_request_at` = '2016-05-10 09:46:14', `perishable_token` = 'oOUBiPXOKr0OSJEoZHe', `updated_at` = '2016-05-10 09:46:14' WHERE `users`.`id` = 2
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+ApplicationController::current_user_session
+ApplicationController::current_user
+  Rendered user/_form.html.erb (0.7ms)
+  Rendered user/edit.html.erb within layouts/application (2.2ms)
+ApplicationController::current_user
+ApplicationController::current_user
+Completed 200 OK in 8ms (Views: 4.1ms | ActiveRecord: 0.7ms)
+Started POST "/user/update" for 127.0.0.1 at 2016-05-10 11:46:14 +0200
+Processing by UserController#update as HTML
+  Parameters: {"user"=>{"name"=>"George Jackson", "login"=>"george", "email"=>"george@emporium.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+ApplicationController::require_user
+ApplicationController::current_user
+ApplicationController::current_user_session
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`persistence_token` = 'b2cf1bfd56c7c1773fe2b56f2356e6a73db8885d4c01991870e5145e6a85651bc951598b3941f3b21e38d78452b87e11bb1dd3e448d4a8778e64e15b7477a2dc' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE `users` SET `last_request_at` = '2016-05-10 09:46:14', `perishable_token` = 'qZQltX6CRTBHC2o4vnIV', `updated_at` = '2016-05-10 09:46:14' WHERE `users`.`id` = 2
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+ApplicationController::current_user_session
+ApplicationController::current_user
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE (`users`.`persistence_token` = BINARY 'c008ed9011211478e7d8c68965ef68f219ba7caa622e4d088db02b5afce5c98655df63e30fcf4aa44183839cd85f571e7a16275d33b39ae3ce46a833d6748e31' AND `users`.`id` != 2) LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users`  WHERE (`users`.`name` = BINARY 'George Jackson' AND `users`.`id` != 2) LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE (`users`.`login` = BINARY 'george' AND `users`.`id` != 2) LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users`  WHERE (`users`.`email` = BINARY 'george@emporium.com' AND `users`.`id` != 2) LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`persistence_token` = 'b2cf1bfd56c7c1773fe2b56f2356e6a73db8885d4c01991870e5145e6a85651bc951598b3941f3b21e38d78452b87e11bb1dd3e448d4a8778e64e15b7477a2dc' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE `users` SET `crypted_password` = 'db4b33121e31259f8ceb89224b5680bd01a8861db2fefebc197cb58b2f3481ff2e4a7f2d15eb88f2d9949f38a5a7c77bb85219ebc7849ea1dd1d614ce5b10016', `current_login_at` = '2016-05-10 09:46:14', `last_login_at` = '2016-05-10 09:46:14', `last_login_ip` = '127.0.0.1', `last_request_at` = '2016-05-10 09:46:14', `login_count` = 2, `name` = 'George Jackson', `password_salt` = '2gzmcioEoUF79tSJbb', `perishable_token` = '1Q92xcKSotszQZSJRNih', `persistence_token` = 'c008ed9011211478e7d8c68965ef68f219ba7caa622e4d088db02b5afce5c98655df63e30fcf4aa44183839cd85f571e7a16275d33b39ae3ce46a833d6748e31', `updated_at` = '2016-05-10 09:46:14' WHERE `users`.`id` = 2
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/user/show
+Completed 302 Found in 14ms (ActiveRecord: 2.3ms)
+Started GET "/user/show" for 127.0.0.1 at 2016-05-10 11:46:14 +0200
+Processing by UserController#show as HTML
+ApplicationController::require_user
+ApplicationController::current_user
+ApplicationController::current_user_session
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE `users` SET `last_request_at` = '2016-05-10 09:46:14', `perishable_token` = 'IeDVKQjICWb4mv6luEA', `updated_at` = '2016-05-10 09:46:14' WHERE `users`.`id` = 2
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+ApplicationController::current_user_session
+ApplicationController::current_user
+  Rendered user/show.html.erb within layouts/application (0.5ms)
+ApplicationController::current_user
+ApplicationController::current_user
+Completed 200 OK in 6ms (Views: 1.9ms | ActiveRecord: 0.7ms)
+  [1m[35m (2.6ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Unable to load directors_film, underlying cause No such file to load -- directors_film 
+
+ /home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `block in require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:232:in `load_dependency'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:348:in `require_or_load'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:307:in `depend_on'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:225:in `require_dependency'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activerecord-4.1.1/lib/active_record/fixtures.rb:862:in `try_to_load_dependency'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activerecord-4.1.1/lib/active_record/fixtures.rb:881:in `block in require_fixture_classes'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activerecord-4.1.1/lib/active_record/fixtures.rb:879:in `each'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activerecord-4.1.1/lib/active_record/fixtures.rb:879:in `require_fixture_classes'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activerecord-4.1.1/lib/active_record/fixtures.rb:857:in `fixtures'
+/home/david/projects/INE-Practica-2/eshop3/test/test_helper.rb:10:in `<class:TestCase>'
+/home/david/projects/INE-Practica-2/eshop3/test/test_helper.rb:5:in `<top (required)>'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `block in require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:232:in `load_dependency'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `require'
+/home/david/projects/INE-Practica-2/eshop3/test/integration/user_test.rb:1:in `<top (required)>'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `block in require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:232:in `load_dependency'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/test_unit/sub_test_task.rb:114:in `block (3 levels) in define'
+/home/david/.rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/test_unit/sub_test_task.rb:114:in `each'
+/home/david/.rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/test_unit/sub_test_task.rb:114:in `block (2 levels) in define'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/file_list.rb:80:in `each'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/file_list.rb:80:in `each'
+/home/david/.rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/test_unit/sub_test_task.rb:113:in `block in define'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:248:in `call'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:248:in `block in execute'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:243:in `each'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:243:in `execute'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:187:in `block in invoke_with_call_chain'
+/home/david/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:180:in `invoke_with_call_chain'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:173:in `invoke'
+/home/david/.rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/test_unit/sub_test_task.rb:20:in `invoke_rake_task'
+/home/david/.rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/test_unit/testing.rake:8:in `block in <top (required)>'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:248:in `call'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:248:in `block in execute'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:243:in `each'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:243:in `execute'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:187:in `block in invoke_with_call_chain'
+/home/david/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:180:in `invoke_with_call_chain'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:173:in `invoke'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:150:in `invoke_task'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:106:in `block (2 levels) in top_level'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:106:in `each'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:106:in `block in top_level'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:115:in `run_with_threads'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:100:in `top_level'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:78:in `block in run'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:176:in `standard_exception_handling'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:75:in `run'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/bin/rake:33:in `<top (required)>'
+/home/david/.rvm/gems/ruby-2.1.2/bin/rake:23:in `load'
+/home/david/.rvm/gems/ruby-2.1.2/bin/rake:23:in `<main>'
+/home/david/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+/home/david/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+  [1m[35m (0.2ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.1ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM `films`[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (1, 'Pro Rails E-Commerce', 1, '2016-05-10', 45.0, 123, 'describe1', 10, '2016-05-10 09:46:50', '2016-05-10 09:46:50')
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (2, 'Pro Rails E-Commerce 2nd Edition', 1, '2016-05-10', 45.0, 124, 'describe2', 10, '2016-05-10 09:46:50', '2016-05-10 09:46:50')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (3, 'Pro Rails E-Commerce 3rd Edition', 1, '2016-05-10', 85, 125, 'describe3', 10, '2016-05-10 09:46:50', '2016-05-10 09:46:50')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (4, 'Pro Rails E-Commerce 4th Edition', 1, '2016-05-10', 105, 126, 'describe4', 10, '2016-05-10 09:46:50', '2016-05-10 09:46:50')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (5, 'Pro Rails E-Commerce 5th Edition', 1, '2016-05-10', 125, 127, 'describe5', 10, '2016-05-10 09:46:50', '2016-05-10 09:46:50')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (6, 'Pro Rails E-Commerce 6th Edition', 1, '2016-05-10', 145, 128, 'describe6', 10, '2016-05-10 09:46:50', '2016-05-10 09:46:50')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (7, 'Pro Rails E-Commerce 7th Edition', 2, '2016-05-10', 165, 129, 'describe7', 10, '2016-05-10 09:46:50', '2016-05-10 09:46:50')
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (8, 'Ruby for Dummies', 1, '2016-05-10', 185, 130, 'describe8', 10, '2016-05-10 09:46:50', '2016-05-10 09:46:50')[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (9, 'Pride and Prejudice', 2, '2016-05-10', 40, 131, 'describe9', 10, '2016-05-10 09:46:50', '2016-05-10 09:46:50')
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (10, 'The Idiot', 2, '2016-05-10', 40, 132, 'describe10', 10, '2016-05-10 09:46:50', '2016-05-10 09:46:50')[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM `producers`
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `producers` (`id`, `name`, `created_at`, `updated_at`) VALUES (1, 'Joel', '2016-05-10 09:46:50', '2016-05-10 09:46:50')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `producers` (`id`, `name`, `created_at`, `updated_at`) VALUES (2, 'Jeremy', '2016-05-10 09:46:50', '2016-05-10 09:46:50')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `producers` (`id`, `name`, `created_at`, `updated_at`) VALUES (3, 'Jarkko', '2016-05-10 09:46:50', '2016-05-10 09:46:50')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `producers` (`id`, `name`, `created_at`, `updated_at`) VALUES (4, 'Christian', '2016-05-10 09:46:50', '2016-05-10 09:46:50')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `producers` (`id`, `name`, `created_at`, `updated_at`) VALUES (5, 'Leo', '2016-05-10 09:46:50', '2016-05-10 09:46:50')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `producers` (`id`, `name`, `created_at`, `updated_at`) VALUES (6, 'Apress', '2016-05-10 09:46:50', '2016-05-10 09:46:50')
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM `directors`[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `directors` (`id`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES (1, 'Joel', 'Spolsky', '2016-05-10 09:46:50', '2016-05-10 09:46:50')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `directors` (`id`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES (2, 'Jeremy', 'Keith', '2016-05-10 09:46:50', '2016-05-10 09:46:50')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `directors` (`id`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES (3, 'Jarkko', 'Laine', '2016-05-10 09:46:50', '2016-05-10 09:46:50')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `directors` (`id`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES (4, 'Christian', 'Hellsten', '2016-05-10 09:46:50', '2016-05-10 09:46:50')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `directors` (`id`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES (5, 'Leo', 'Tolstoy', '2016-05-10 09:46:50', '2016-05-10 09:46:50')
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM `directors_films`[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (1, 1)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (2, 2)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (2, 3)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (2, 4)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (2, 5)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (2, 6)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (2, 7)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (3, 8)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (4, 9)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (5, 10)[0m
+  [1m[35m (3.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------
+UserTest: test_user_account
+---------------------------
+Started GET "/user/new" for 127.0.0.1 at 2016-05-10 11:46:50 +0200
+Processing by UserController#new as HTML
+ApplicationController::current_user
+ApplicationController::current_user_session
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `users`[0m
+  Rendered user/_form.html.erb (14.2ms)
+  Rendered user/new.html.erb within layouts/application (19.6ms)
+ApplicationController::current_user
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `users`
+Completed 200 OK in 78ms (Views: 41.3ms | ActiveRecord: 1.4ms)
+Started POST "/user/create" for 127.0.0.1 at 2016-05-10 11:46:50 +0200
+Processing by UserController#create as HTML
+  Parameters: {"user"=>{"name"=>"George Smith", "login"=>"george", "email"=>"george@emporium.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'george@emporium.com' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`login` = 'george' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`persistence_token` = BINARY '39c1bf1de78a15bd987d3a235e63b7a938323ce26ac8d47e20628609975fe08ba3ff47b4eefa26b02cb20624717124d624fb4964c4f7d116bd4817f74786dcac' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`name` = BINARY 'George Smith' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`login` = BINARY 'george' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = BINARY 'george@emporium.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`created_at`, `crypted_password`, `current_login_at`, `current_login_ip`, `email`, `last_request_at`, `login`, `login_count`, `name`, `password_salt`, `perishable_token`, `persistence_token`, `updated_at`) VALUES ('2016-05-10 09:46:50', 'd2138a7f2a6766abf4f2fb1ae21367b1df7a5b5e650cb63f471611a7c618edcb8db2c19ec6c46b725fbdab5f2edd800bbcc896fa0600aace3dcab1aadd679050', '2016-05-10 09:46:50', '127.0.0.1', 'george@emporium.com', '2016-05-10 09:46:50', 'george', 1, 'George Smith', '2Bih1c3IadNgKUKHIUfQ', 'sSOO8mmDb51eCFNNCJ7', '39c1bf1de78a15bd987d3a235e63b7a938323ce26ac8d47e20628609975fe08ba3ff47b4eefa26b02cb20624717124d624fb4964c4f7d116bd4817f74786dcac', '2016-05-10 09:46:50')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/user/show
+Completed 302 Found in 20ms (ActiveRecord: 1.7ms)
+Started GET "/user/show" for 127.0.0.1 at 2016-05-10 11:46:50 +0200
+Processing by UserController#show as HTML
+ApplicationController::require_user
+ApplicationController::current_user
+ApplicationController::current_user_session
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`persistence_token` = '39c1bf1de78a15bd987d3a235e63b7a938323ce26ac8d47e20628609975fe08ba3ff47b4eefa26b02cb20624717124d624fb4964c4f7d116bd4817f74786dcac' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE `users` SET `last_request_at` = '2016-05-10 09:46:50', `perishable_token` = 'gFCrs4vL35nVowcLiy5r', `updated_at` = '2016-05-10 09:46:50' WHERE `users`.`id` = 3
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+ApplicationController::current_user_session
+ApplicationController::current_user
+  Rendered user/show.html.erb within layouts/application (1.3ms)
+ApplicationController::current_user
+ApplicationController::current_user
+Completed 200 OK in 11ms (Views: 3.3ms | ActiveRecord: 0.7ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`login` = 'george' LIMIT 1
+Started GET "/user/show/?id=3" for 127.0.0.1 at 2016-05-10 11:46:50 +0200
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"3"}
+ApplicationController::require_user
+ApplicationController::current_user
+ApplicationController::current_user_session
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`persistence_token` = '39c1bf1de78a15bd987d3a235e63b7a938323ce26ac8d47e20628609975fe08ba3ff47b4eefa26b02cb20624717124d624fb4964c4f7d116bd4817f74786dcac' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2016-05-10 09:46:51', `perishable_token` = '9UZp4L6foapwWAyxUc0S', `updated_at` = '2016-05-10 09:46:51' WHERE `users`.`id` = 3[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+ApplicationController::current_user_session
+ApplicationController::current_user
+  Rendered user/show.html.erb within layouts/application (0.5ms)
+ApplicationController::current_user
+ApplicationController::current_user
+Completed 200 OK in 6ms (Views: 1.9ms | ActiveRecord: 0.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1[0m
+Started GET "/user/edit?id=3" for 127.0.0.1 at 2016-05-10 11:46:51 +0200
+Processing by UserController#edit as HTML
+  Parameters: {"id"=>"3"}
+ApplicationController::require_user
+ApplicationController::current_user
+ApplicationController::current_user_session
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`persistence_token` = '39c1bf1de78a15bd987d3a235e63b7a938323ce26ac8d47e20628609975fe08ba3ff47b4eefa26b02cb20624717124d624fb4964c4f7d116bd4817f74786dcac' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE `users` SET `last_request_at` = '2016-05-10 09:46:51', `perishable_token` = 'kH2d6eVCkbpf2IGzYIR', `updated_at` = '2016-05-10 09:46:51' WHERE `users`.`id` = 3
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+ApplicationController::current_user_session
+ApplicationController::current_user
+  Rendered user/_form.html.erb (0.8ms)
+  Rendered user/edit.html.erb within layouts/application (2.3ms)
+ApplicationController::current_user
+ApplicationController::current_user
+Completed 200 OK in 8ms (Views: 4.1ms | ActiveRecord: 0.6ms)
+Started POST "/user/update" for 127.0.0.1 at 2016-05-10 11:46:51 +0200
+Processing by UserController#update as HTML
+  Parameters: {"user"=>{"name"=>"George Jackson", "login"=>"george", "email"=>"george@emporium.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+ApplicationController::require_user
+ApplicationController::current_user
+ApplicationController::current_user_session
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`persistence_token` = '39c1bf1de78a15bd987d3a235e63b7a938323ce26ac8d47e20628609975fe08ba3ff47b4eefa26b02cb20624717124d624fb4964c4f7d116bd4817f74786dcac' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `last_request_at` = '2016-05-10 09:46:51', `perishable_token` = 'ch9nunlwh8mBq5nga1K0', `updated_at` = '2016-05-10 09:46:51' WHERE `users`.`id` = 3
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+ApplicationController::current_user_session
+ApplicationController::current_user
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE (`users`.`persistence_token` = BINARY '9801e4d5fc665e625100270b3aa5170ab7aea966f37e834e9e028c588f960e95aed88d8023840841d4a906da701735e0ec2990f442a6e88ec53a455e2ca06ffe' AND `users`.`id` != 3) LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users`  WHERE (`users`.`name` = BINARY 'George Jackson' AND `users`.`id` != 3) LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE (`users`.`login` = BINARY 'george' AND `users`.`id` != 3) LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users`  WHERE (`users`.`email` = BINARY 'george@emporium.com' AND `users`.`id` != 3) LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`persistence_token` = '39c1bf1de78a15bd987d3a235e63b7a938323ce26ac8d47e20628609975fe08ba3ff47b4eefa26b02cb20624717124d624fb4964c4f7d116bd4817f74786dcac' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE `users` SET `crypted_password` = '5d2cb6ac363ac85560abbd86414284014b10e51f57a664d3b57eda6aca9ceda64fdaa33f6a2584958f57db84f9752224c559bd055cb6b3343232190b9da4f639', `current_login_at` = '2016-05-10 09:46:51', `last_login_at` = '2016-05-10 09:46:50', `last_login_ip` = '127.0.0.1', `last_request_at` = '2016-05-10 09:46:51', `login_count` = 2, `name` = 'George Jackson', `password_salt` = 'BCC7ntXZx0GtSabG0Wcv', `perishable_token` = 'aPvtotmQkcouE57BuSZp', `persistence_token` = '9801e4d5fc665e625100270b3aa5170ab7aea966f37e834e9e028c588f960e95aed88d8023840841d4a906da701735e0ec2990f442a6e88ec53a455e2ca06ffe', `updated_at` = '2016-05-10 09:46:51' WHERE `users`.`id` = 3
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/user/show
+Completed 302 Found in 14ms (ActiveRecord: 2.2ms)
+Started GET "/user/show" for 127.0.0.1 at 2016-05-10 11:46:51 +0200
+Processing by UserController#show as HTML
+ApplicationController::require_user
+ApplicationController::current_user
+ApplicationController::current_user_session
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE `users` SET `last_request_at` = '2016-05-10 09:46:51', `perishable_token` = 'Dagv40rWb5gvw142QDq3', `updated_at` = '2016-05-10 09:46:51' WHERE `users`.`id` = 3
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+ApplicationController::current_user_session
+ApplicationController::current_user
+  Rendered user/show.html.erb within layouts/application (0.6ms)
+ApplicationController::current_user
+ApplicationController::current_user
+Completed 200 OK in 6ms (Views: 1.9ms | ActiveRecord: 0.6ms)
+  [1m[35m (7.4ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Unable to load directors_film, underlying cause No such file to load -- directors_film 
+
+ /home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `block in require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:232:in `load_dependency'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:348:in `require_or_load'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:307:in `depend_on'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:225:in `require_dependency'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activerecord-4.1.1/lib/active_record/fixtures.rb:862:in `try_to_load_dependency'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activerecord-4.1.1/lib/active_record/fixtures.rb:881:in `block in require_fixture_classes'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activerecord-4.1.1/lib/active_record/fixtures.rb:879:in `each'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activerecord-4.1.1/lib/active_record/fixtures.rb:879:in `require_fixture_classes'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activerecord-4.1.1/lib/active_record/fixtures.rb:857:in `fixtures'
+/home/david/projects/INE-Practica-2/eshop3/test/test_helper.rb:10:in `<class:TestCase>'
+/home/david/projects/INE-Practica-2/eshop3/test/test_helper.rb:5:in `<top (required)>'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `block in require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:232:in `load_dependency'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `require'
+/home/david/projects/INE-Practica-2/eshop3/test/integration/authentication_test.rb:1:in `<top (required)>'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `block in require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:232:in `load_dependency'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/test_unit/sub_test_task.rb:114:in `block (3 levels) in define'
+/home/david/.rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/test_unit/sub_test_task.rb:114:in `each'
+/home/david/.rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/test_unit/sub_test_task.rb:114:in `block (2 levels) in define'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/file_list.rb:80:in `each'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/file_list.rb:80:in `each'
+/home/david/.rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/test_unit/sub_test_task.rb:113:in `block in define'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:248:in `call'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:248:in `block in execute'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:243:in `each'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:243:in `execute'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:187:in `block in invoke_with_call_chain'
+/home/david/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:180:in `invoke_with_call_chain'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:173:in `invoke'
+/home/david/.rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/test_unit/sub_test_task.rb:20:in `invoke_rake_task'
+/home/david/.rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/test_unit/testing.rake:8:in `block in <top (required)>'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:248:in `call'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:248:in `block in execute'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:243:in `each'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:243:in `execute'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:187:in `block in invoke_with_call_chain'
+/home/david/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:180:in `invoke_with_call_chain'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:173:in `invoke'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:150:in `invoke_task'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:106:in `block (2 levels) in top_level'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:106:in `each'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:106:in `block in top_level'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:115:in `run_with_threads'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:100:in `top_level'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:78:in `block in run'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:176:in `standard_exception_handling'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:75:in `run'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/bin/rake:33:in `<top (required)>'
+/home/david/.rvm/gems/ruby-2.1.2/bin/rake:23:in `load'
+/home/david/.rvm/gems/ruby-2.1.2/bin/rake:23:in `<main>'
+/home/david/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+/home/david/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+  [1m[35m (0.3ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.1ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM `films`[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (1, 'Pro Rails E-Commerce', 1, '2016-05-10', 45.0, 123, 'describe1', 10, '2016-05-10 09:47:37', '2016-05-10 09:47:37')
+  [1m[36mFixture Insert (0.8ms)[0m  [1mINSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (2, 'Pro Rails E-Commerce 2nd Edition', 1, '2016-05-10', 45.0, 124, 'describe2', 10, '2016-05-10 09:47:37', '2016-05-10 09:47:37')[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (3, 'Pro Rails E-Commerce 3rd Edition', 1, '2016-05-10', 85, 125, 'describe3', 10, '2016-05-10 09:47:37', '2016-05-10 09:47:37')
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (4, 'Pro Rails E-Commerce 4th Edition', 1, '2016-05-10', 105, 126, 'describe4', 10, '2016-05-10 09:47:37', '2016-05-10 09:47:37')[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (5, 'Pro Rails E-Commerce 5th Edition', 1, '2016-05-10', 125, 127, 'describe5', 10, '2016-05-10 09:47:37', '2016-05-10 09:47:37')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (6, 'Pro Rails E-Commerce 6th Edition', 1, '2016-05-10', 145, 128, 'describe6', 10, '2016-05-10 09:47:37', '2016-05-10 09:47:37')[0m
+  [1m[35mFixture Insert (1.2ms)[0m  INSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (7, 'Pro Rails E-Commerce 7th Edition', 2, '2016-05-10', 165, 129, 'describe7', 10, '2016-05-10 09:47:37', '2016-05-10 09:47:37')
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (8, 'Ruby for Dummies', 1, '2016-05-10', 185, 130, 'describe8', 10, '2016-05-10 09:47:37', '2016-05-10 09:47:37')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (9, 'Pride and Prejudice', 2, '2016-05-10', 40, 131, 'describe9', 10, '2016-05-10 09:47:37', '2016-05-10 09:47:37')
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (10, 'The Idiot', 2, '2016-05-10', 40, 132, 'describe10', 10, '2016-05-10 09:47:37', '2016-05-10 09:47:37')[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM `producers`
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `producers` (`id`, `name`, `created_at`, `updated_at`) VALUES (1, 'Joel', '2016-05-10 09:47:37', '2016-05-10 09:47:37')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `producers` (`id`, `name`, `created_at`, `updated_at`) VALUES (2, 'Jeremy', '2016-05-10 09:47:37', '2016-05-10 09:47:37')
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `producers` (`id`, `name`, `created_at`, `updated_at`) VALUES (3, 'Jarkko', '2016-05-10 09:47:37', '2016-05-10 09:47:37')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `producers` (`id`, `name`, `created_at`, `updated_at`) VALUES (4, 'Christian', '2016-05-10 09:47:37', '2016-05-10 09:47:37')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `producers` (`id`, `name`, `created_at`, `updated_at`) VALUES (5, 'Leo', '2016-05-10 09:47:37', '2016-05-10 09:47:37')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `producers` (`id`, `name`, `created_at`, `updated_at`) VALUES (6, 'Apress', '2016-05-10 09:47:37', '2016-05-10 09:47:37')
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM `directors`[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `directors` (`id`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES (1, 'Joel', 'Spolsky', '2016-05-10 09:47:37', '2016-05-10 09:47:37')
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `directors` (`id`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES (2, 'Jeremy', 'Keith', '2016-05-10 09:47:37', '2016-05-10 09:47:37')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `directors` (`id`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES (3, 'Jarkko', 'Laine', '2016-05-10 09:47:37', '2016-05-10 09:47:37')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `directors` (`id`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES (4, 'Christian', 'Hellsten', '2016-05-10 09:47:37', '2016-05-10 09:47:37')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `directors` (`id`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES (5, 'Leo', 'Tolstoy', '2016-05-10 09:47:37', '2016-05-10 09:47:37')
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM `directors_films`[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (1, 1)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (2, 2)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (2, 3)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (2, 4)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (2, 5)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (2, 6)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (2, 7)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (3, 8)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (4, 9)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (5, 10)[0m
+  [1m[35m (52.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-------------------------------------
+AuthenticationTest: test_failed_login
+-------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'george@emporium.com' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`login` = 'george' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`persistence_token` = BINARY '288a153b93428e57fbee5ebb8d467aa0cf03f22a5bcba1b93494bd9fa125772e07150dadddb0794d48ff926deadef8d5f0c072de557cc5d281832095761bfb9d' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`name` = BINARY 'George Smith' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`login` = BINARY 'george' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = BINARY 'george@emporium.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`created_at`, `crypted_password`, `email`, `login`, `name`, `password_salt`, `perishable_token`, `persistence_token`, `updated_at`) VALUES ('2016-05-10 09:47:38', 'cfc9571053c324c675f8e054383aedd580e558be40a030d27fdd97b343ef8179684bf4c7c4fed30b3d4d16cc837cd3bf872849529e95d57a759f481d6775a183', 'george@emporium.com', 'george', 'George Smith', '9eR0iCoknVeu6sN323d', 'YlzF0m7svHfU3MPUwWOp', '288a153b93428e57fbee5ebb8d467aa0cf03f22a5bcba1b93494bd9fa125772e07150dadddb0794d48ff926deadef8d5f0c072de557cc5d281832095761bfb9d', '2016-05-10 09:47:38')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/admin/film/new" for 127.0.0.1 at 2016-05-10 11:47:38 +0200
+Processing by Admin::FilmController#new as HTML
+ApplicationController::require_user
+ApplicationController::current_user
+ApplicationController::current_user_session
+Redirected to http://www.example.com/user_sessions/new
+Filter chain halted as :require_user rendered or redirected
+Completed 302 Found in 12ms (ActiveRecord: 0.0ms)
+Started POST "/user_sessions/create" for 127.0.0.1 at 2016-05-10 11:47:38 +0200
+Processing by UserSessionsController#create as HTML
+  Parameters: {"user_session"=>{"login"=>"harry", "password"=>"[FILTERED]"}}
+ApplicationController::require_no_user
+ApplicationController::current_user
+ApplicationController::current_user_session
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`login` = 'harry'  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered user_sessions/_form.html.erb (4.5ms)
+  Rendered user_sessions/new.html.erb within layouts/application (9.0ms)
+ApplicationController::current_user
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `users`[0m
+Completed 200 OK in 35ms (Views: 31.1ms | ActiveRecord: 0.6ms)
+  [1m[35m (1.8ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+-----------------------------------------
+AuthenticationTest: test_successful_login
+-----------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'george@emporium.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`login` = 'george' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`persistence_token` = BINARY 'db5dc03c03bba4287e640d43618f9a3b19f9c1c0b17788d8a3e3c016501f3307d7231830920fde2abb3bc9f0e90e2d1f3087fedcea46ae70c089dc5164b1ba31' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`name` = BINARY 'George Smith' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`login` = BINARY 'george' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`email` = BINARY 'george@emporium.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`created_at`, `crypted_password`, `email`, `login`, `name`, `password_salt`, `perishable_token`, `persistence_token`, `updated_at`) VALUES ('2016-05-10 09:47:38', '5ec3c21de5ee3b2b019724c260d8d8f137457d7aae413b1580fa5d415e67f9a585b22e8481311b7dc13112236fdfdfdcbdb733027d666288fdeff46f695bd20f', 'george@emporium.com', 'george', 'George Smith', '51V3srvGWAJv3eIvGKFE', 'GcD6citdgl5jxftvRbZR', 'db5dc03c03bba4287e640d43618f9a3b19f9c1c0b17788d8a3e3c016501f3307d7231830920fde2abb3bc9f0e90e2d1f3087fedcea46ae70c089dc5164b1ba31', '2016-05-10 09:47:38')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/admin/film/new" for 127.0.0.1 at 2016-05-10 11:47:38 +0200
+Processing by Admin::FilmController#new as HTML
+ApplicationController::require_user
+ApplicationController::current_user
+ApplicationController::current_user_session
+Redirected to http://www.example.com/user_sessions/new
+Filter chain halted as :require_user rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+Started POST "/user_sessions/create" for 127.0.0.1 at 2016-05-10 11:47:38 +0200
+Processing by UserSessionsController#create as HTML
+  Parameters: {"user_session"=>{"login"=>"george", "password"=>"[FILTERED]"}}
+ApplicationController::require_no_user
+ApplicationController::current_user
+ApplicationController::current_user_session
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`login` = 'george'  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE `users` SET `current_login_at` = '2016-05-10 09:47:38', `current_login_ip` = '127.0.0.1', `last_request_at` = '2016-05-10 09:47:38', `login_count` = 1, `perishable_token` = 'hsTVDxWeudqBv14AzqTB', `updated_at` = '2016-05-10 09:47:38' WHERE `users`.`id` = 5[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/admin/film/new
+Completed 302 Found in 7ms (ActiveRecord: 0.8ms)
+  [1m[36m (2.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Unable to load directors_film, underlying cause No such file to load -- directors_film 
+
+ /home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `block in require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:232:in `load_dependency'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:348:in `require_or_load'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:307:in `depend_on'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:225:in `require_dependency'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activerecord-4.1.1/lib/active_record/fixtures.rb:862:in `try_to_load_dependency'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activerecord-4.1.1/lib/active_record/fixtures.rb:881:in `block in require_fixture_classes'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activerecord-4.1.1/lib/active_record/fixtures.rb:879:in `each'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activerecord-4.1.1/lib/active_record/fixtures.rb:879:in `require_fixture_classes'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activerecord-4.1.1/lib/active_record/fixtures.rb:857:in `fixtures'
+/home/david/projects/INE-Practica-2/eshop3/test/test_helper.rb:10:in `<class:TestCase>'
+/home/david/projects/INE-Practica-2/eshop3/test/test_helper.rb:5:in `<top (required)>'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `block in require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:232:in `load_dependency'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `require'
+/home/david/projects/INE-Practica-2/eshop3/test/integration/authentication_test.rb:1:in `<top (required)>'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `block in require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:232:in `load_dependency'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/test_unit/sub_test_task.rb:114:in `block (3 levels) in define'
+/home/david/.rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/test_unit/sub_test_task.rb:114:in `each'
+/home/david/.rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/test_unit/sub_test_task.rb:114:in `block (2 levels) in define'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/file_list.rb:80:in `each'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/file_list.rb:80:in `each'
+/home/david/.rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/test_unit/sub_test_task.rb:113:in `block in define'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:248:in `call'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:248:in `block in execute'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:243:in `each'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:243:in `execute'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:187:in `block in invoke_with_call_chain'
+/home/david/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:180:in `invoke_with_call_chain'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:173:in `invoke'
+/home/david/.rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/test_unit/sub_test_task.rb:20:in `invoke_rake_task'
+/home/david/.rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/test_unit/testing.rake:8:in `block in <top (required)>'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:248:in `call'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:248:in `block in execute'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:243:in `each'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:243:in `execute'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:187:in `block in invoke_with_call_chain'
+/home/david/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:180:in `invoke_with_call_chain'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:173:in `invoke'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:150:in `invoke_task'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:106:in `block (2 levels) in top_level'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:106:in `each'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:106:in `block in top_level'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:115:in `run_with_threads'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:100:in `top_level'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:78:in `block in run'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:176:in `standard_exception_handling'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:75:in `run'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/bin/rake:33:in `<top (required)>'
+/home/david/.rvm/gems/ruby-2.1.2/bin/rake:23:in `load'
+/home/david/.rvm/gems/ruby-2.1.2/bin/rake:23:in `<main>'
+/home/david/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+/home/david/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+  [1m[35m (0.2ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.1ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM `films`[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (1, 'Pro Rails E-Commerce', 1, '2016-05-10', 45.0, 123, 'describe1', 10, '2016-05-10 09:54:17', '2016-05-10 09:54:17')
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (2, 'Pro Rails E-Commerce 2nd Edition', 1, '2016-05-10', 45.0, 124, 'describe2', 10, '2016-05-10 09:54:17', '2016-05-10 09:54:17')[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (3, 'Pro Rails E-Commerce 3rd Edition', 1, '2016-05-10', 85, 125, 'describe3', 10, '2016-05-10 09:54:17', '2016-05-10 09:54:17')
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (4, 'Pro Rails E-Commerce 4th Edition', 1, '2016-05-10', 105, 126, 'describe4', 10, '2016-05-10 09:54:17', '2016-05-10 09:54:17')[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (5, 'Pro Rails E-Commerce 5th Edition', 1, '2016-05-10', 125, 127, 'describe5', 10, '2016-05-10 09:54:17', '2016-05-10 09:54:17')
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (6, 'Pro Rails E-Commerce 6th Edition', 1, '2016-05-10', 145, 128, 'describe6', 10, '2016-05-10 09:54:17', '2016-05-10 09:54:17')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (7, 'Pro Rails E-Commerce 7th Edition', 2, '2016-05-10', 165, 129, 'describe7', 10, '2016-05-10 09:54:17', '2016-05-10 09:54:17')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (8, 'Ruby for Dummies', 1, '2016-05-10', 185, 130, 'describe8', 10, '2016-05-10 09:54:17', '2016-05-10 09:54:17')[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (9, 'Pride and Prejudice', 2, '2016-05-10', 40, 131, 'describe9', 10, '2016-05-10 09:54:17', '2016-05-10 09:54:17')
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (10, 'The Idiot', 2, '2016-05-10', 40, 132, 'describe10', 10, '2016-05-10 09:54:17', '2016-05-10 09:54:17')[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM `producers`
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `producers` (`id`, `name`, `created_at`, `updated_at`) VALUES (1, 'Joel', '2016-05-10 09:54:17', '2016-05-10 09:54:17')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `producers` (`id`, `name`, `created_at`, `updated_at`) VALUES (2, 'Jeremy', '2016-05-10 09:54:17', '2016-05-10 09:54:17')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `producers` (`id`, `name`, `created_at`, `updated_at`) VALUES (3, 'Jarkko', '2016-05-10 09:54:17', '2016-05-10 09:54:17')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `producers` (`id`, `name`, `created_at`, `updated_at`) VALUES (4, 'Christian', '2016-05-10 09:54:17', '2016-05-10 09:54:17')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `producers` (`id`, `name`, `created_at`, `updated_at`) VALUES (5, 'Leo', '2016-05-10 09:54:17', '2016-05-10 09:54:17')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `producers` (`id`, `name`, `created_at`, `updated_at`) VALUES (6, 'Apress', '2016-05-10 09:54:17', '2016-05-10 09:54:17')
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM `directors`[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `directors` (`id`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES (1, 'Joel', 'Spolsky', '2016-05-10 09:54:17', '2016-05-10 09:54:17')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `directors` (`id`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES (2, 'Jeremy', 'Keith', '2016-05-10 09:54:17', '2016-05-10 09:54:17')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `directors` (`id`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES (3, 'Jarkko', 'Laine', '2016-05-10 09:54:17', '2016-05-10 09:54:17')
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `directors` (`id`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES (4, 'Christian', 'Hellsten', '2016-05-10 09:54:17', '2016-05-10 09:54:17')[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `directors` (`id`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES (5, 'Leo', 'Tolstoy', '2016-05-10 09:54:17', '2016-05-10 09:54:17')
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM `directors_films`[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (1, 1)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (2, 2)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (2, 3)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (2, 4)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (2, 5)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (2, 6)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (2, 7)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (3, 8)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (4, 9)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (5, 10)[0m
+  [1m[35m (9.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-------------------------------------
+AuthenticationTest: test_failed_login
+-------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'george@emporium.com' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`login` = 'george' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`persistence_token` = BINARY 'e98a3a656d17b353be8e4bfc7b143a54cb70fb3b99fa6f36e6eed92628bf39ac5bd44a213ade230510991cc68db38c5dc232f50d436c8648eac0a3402cea3849' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`name` = BINARY 'George Smith' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`login` = BINARY 'george' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = BINARY 'george@emporium.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`created_at`, `crypted_password`, `email`, `login`, `name`, `password_salt`, `perishable_token`, `persistence_token`, `updated_at`) VALUES ('2016-05-10 09:54:17', '7cd53c5094c1ca75ccba09a16a726215dfa9bda6e7d8d4672c7cfd38f87f4150cf547aeb838ec4a7cad4a845f5946374f27d27a0ecdcd63b4f80bfe278e2ff65', 'george@emporium.com', 'george', 'George Smith', 'kEIKA1r8E5hx05cvuMyZ', 'CbV3mmmH8Yrh5FjtRNM7', 'e98a3a656d17b353be8e4bfc7b143a54cb70fb3b99fa6f36e6eed92628bf39ac5bd44a213ade230510991cc68db38c5dc232f50d436c8648eac0a3402cea3849', '2016-05-10 09:54:17')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/admin/film/new" for 127.0.0.1 at 2016-05-10 11:54:17 +0200
+Processing by Admin::FilmController#new as HTML
+ApplicationController::require_user
+ApplicationController::current_user
+ApplicationController::current_user_session
+Redirected to http://www.example.com/user_sessions/new
+Filter chain halted as :require_user rendered or redirected
+Completed 302 Found in 12ms (ActiveRecord: 0.0ms)
+Started POST "/user_sessions/create" for 127.0.0.1 at 2016-05-10 11:54:17 +0200
+Processing by UserSessionsController#create as HTML
+  Parameters: {"user_session"=>{"login"=>"harry", "password"=>"[FILTERED]"}}
+ApplicationController::require_no_user
+ApplicationController::current_user
+ApplicationController::current_user_session
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`login` = 'harry'  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered user_sessions/_form.html.erb (4.8ms)
+  Rendered user_sessions/new.html.erb within layouts/application (9.5ms)
+ApplicationController::current_user
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `users`[0m
+Completed 200 OK in 38ms (Views: 34.3ms | ActiveRecord: 0.6ms)
+  [1m[35m (2.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+-----------------------------------------
+AuthenticationTest: test_successful_login
+-----------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'george@emporium.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`login` = 'george' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`persistence_token` = BINARY '6873a5a00f680b2182abda12bf68793722502946e3d07ee93d305f02da0bcba8cbd6902c0b5dfa8b78cc017f35fedf05c27dc68b29ba45fbe6adeaca59b54d7d' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`name` = BINARY 'George Smith' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`login` = BINARY 'george' LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`email` = BINARY 'george@emporium.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`created_at`, `crypted_password`, `email`, `login`, `name`, `password_salt`, `perishable_token`, `persistence_token`, `updated_at`) VALUES ('2016-05-10 09:54:17', '4765207e8ec30fc3f64578fb29b0c07205c122ba8664db388fd8f93ca57e2e95699e9cdd3777df8fd74cefaeae1ee45b0f4f714df80bfdddc0cf8c7b4b3c85d0', 'george@emporium.com', 'george', 'George Smith', 'nwGnxc4YbQE5ZOWTGSwl', 'am9C8z9ndSDVZqmJ1re9', '6873a5a00f680b2182abda12bf68793722502946e3d07ee93d305f02da0bcba8cbd6902c0b5dfa8b78cc017f35fedf05c27dc68b29ba45fbe6adeaca59b54d7d', '2016-05-10 09:54:17')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/admin/film/new" for 127.0.0.1 at 2016-05-10 11:54:17 +0200
+Processing by Admin::FilmController#new as HTML
+ApplicationController::require_user
+ApplicationController::current_user
+ApplicationController::current_user_session
+Redirected to http://www.example.com/user_sessions/new
+Filter chain halted as :require_user rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+Started POST "/user_sessions/create" for 127.0.0.1 at 2016-05-10 11:54:17 +0200
+Processing by UserSessionsController#create as HTML
+  Parameters: {"user_session"=>{"login"=>"george", "password"=>"[FILTERED]"}}
+ApplicationController::require_no_user
+ApplicationController::current_user
+ApplicationController::current_user_session
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`login` = 'george'  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE `users` SET `current_login_at` = '2016-05-10 09:54:17', `current_login_ip` = '127.0.0.1', `last_request_at` = '2016-05-10 09:54:17', `login_count` = 1, `perishable_token` = 'eYBHI4SYfa4Oq8ka8M2', `updated_at` = '2016-05-10 09:54:17' WHERE `users`.`id` = 7[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/admin/film/new
+Completed 302 Found in 7ms (ActiveRecord: 0.8ms)
+  [1m[36m (2.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Unable to load directors_film, underlying cause No such file to load -- directors_film 
+
+ /home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `block in require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:232:in `load_dependency'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:348:in `require_or_load'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:307:in `depend_on'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:225:in `require_dependency'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activerecord-4.1.1/lib/active_record/fixtures.rb:862:in `try_to_load_dependency'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activerecord-4.1.1/lib/active_record/fixtures.rb:881:in `block in require_fixture_classes'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activerecord-4.1.1/lib/active_record/fixtures.rb:879:in `each'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activerecord-4.1.1/lib/active_record/fixtures.rb:879:in `require_fixture_classes'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activerecord-4.1.1/lib/active_record/fixtures.rb:857:in `fixtures'
+/home/david/projects/INE-Practica-2/eshop3/test/test_helper.rb:10:in `<class:TestCase>'
+/home/david/projects/INE-Practica-2/eshop3/test/test_helper.rb:5:in `<top (required)>'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `block in require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:232:in `load_dependency'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `require'
+/home/david/projects/INE-Practica-2/eshop3/test/integration/user_test.rb:1:in `<top (required)>'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `block in require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:232:in `load_dependency'
+/home/david/.rvm/gems/ruby-2.1.2/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `require'
+/home/david/.rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/test_unit/sub_test_task.rb:114:in `block (3 levels) in define'
+/home/david/.rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/test_unit/sub_test_task.rb:114:in `each'
+/home/david/.rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/test_unit/sub_test_task.rb:114:in `block (2 levels) in define'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/file_list.rb:80:in `each'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/file_list.rb:80:in `each'
+/home/david/.rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/test_unit/sub_test_task.rb:113:in `block in define'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:248:in `call'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:248:in `block in execute'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:243:in `each'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:243:in `execute'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:187:in `block in invoke_with_call_chain'
+/home/david/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:180:in `invoke_with_call_chain'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:173:in `invoke'
+/home/david/.rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/test_unit/sub_test_task.rb:20:in `invoke_rake_task'
+/home/david/.rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/test_unit/testing.rake:8:in `block in <top (required)>'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:248:in `call'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:248:in `block in execute'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:243:in `each'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:243:in `execute'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:187:in `block in invoke_with_call_chain'
+/home/david/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:180:in `invoke_with_call_chain'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/task.rb:173:in `invoke'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:150:in `invoke_task'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:106:in `block (2 levels) in top_level'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:106:in `each'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:106:in `block in top_level'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:115:in `run_with_threads'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:100:in `top_level'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:78:in `block in run'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:176:in `standard_exception_handling'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/lib/rake/application.rb:75:in `run'
+/home/david/.rvm/gems/ruby-2.1.2/gems/rake-11.1.1/bin/rake:33:in `<top (required)>'
+/home/david/.rvm/gems/ruby-2.1.2/bin/rake:23:in `load'
+/home/david/.rvm/gems/ruby-2.1.2/bin/rake:23:in `<main>'
+/home/david/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+/home/david/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+  [1m[35m (0.3ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.1ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM `films`[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (1, 'Pro Rails E-Commerce', 1, '2016-05-10', 45.0, 123, 'describe1', 10, '2016-05-10 09:54:20', '2016-05-10 09:54:20')
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (2, 'Pro Rails E-Commerce 2nd Edition', 1, '2016-05-10', 45.0, 124, 'describe2', 10, '2016-05-10 09:54:20', '2016-05-10 09:54:20')[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (3, 'Pro Rails E-Commerce 3rd Edition', 1, '2016-05-10', 85, 125, 'describe3', 10, '2016-05-10 09:54:20', '2016-05-10 09:54:20')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (4, 'Pro Rails E-Commerce 4th Edition', 1, '2016-05-10', 105, 126, 'describe4', 10, '2016-05-10 09:54:20', '2016-05-10 09:54:20')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (5, 'Pro Rails E-Commerce 5th Edition', 1, '2016-05-10', 125, 127, 'describe5', 10, '2016-05-10 09:54:20', '2016-05-10 09:54:20')
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (6, 'Pro Rails E-Commerce 6th Edition', 1, '2016-05-10', 145, 128, 'describe6', 10, '2016-05-10 09:54:20', '2016-05-10 09:54:20')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (7, 'Pro Rails E-Commerce 7th Edition', 2, '2016-05-10', 165, 129, 'describe7', 10, '2016-05-10 09:54:20', '2016-05-10 09:54:20')
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (8, 'Ruby for Dummies', 1, '2016-05-10', 185, 130, 'describe8', 10, '2016-05-10 09:54:20', '2016-05-10 09:54:20')[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (9, 'Pride and Prejudice', 2, '2016-05-10', 40, 131, 'describe9', 10, '2016-05-10 09:54:20', '2016-05-10 09:54:20')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `films` (`id`, `title`, `producer_id`, `produced_at`, `price`, `cod`, `blurb`, `duration`, `created_at`, `updated_at`) VALUES (10, 'The Idiot', 2, '2016-05-10', 40, 132, 'describe10', 10, '2016-05-10 09:54:20', '2016-05-10 09:54:20')[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM `producers`
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `producers` (`id`, `name`, `created_at`, `updated_at`) VALUES (1, 'Joel', '2016-05-10 09:54:20', '2016-05-10 09:54:20')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `producers` (`id`, `name`, `created_at`, `updated_at`) VALUES (2, 'Jeremy', '2016-05-10 09:54:20', '2016-05-10 09:54:20')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `producers` (`id`, `name`, `created_at`, `updated_at`) VALUES (3, 'Jarkko', '2016-05-10 09:54:20', '2016-05-10 09:54:20')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `producers` (`id`, `name`, `created_at`, `updated_at`) VALUES (4, 'Christian', '2016-05-10 09:54:20', '2016-05-10 09:54:20')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `producers` (`id`, `name`, `created_at`, `updated_at`) VALUES (5, 'Leo', '2016-05-10 09:54:20', '2016-05-10 09:54:20')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `producers` (`id`, `name`, `created_at`, `updated_at`) VALUES (6, 'Apress', '2016-05-10 09:54:20', '2016-05-10 09:54:20')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM `directors`[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `directors` (`id`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES (1, 'Joel', 'Spolsky', '2016-05-10 09:54:20', '2016-05-10 09:54:20')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `directors` (`id`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES (2, 'Jeremy', 'Keith', '2016-05-10 09:54:20', '2016-05-10 09:54:20')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `directors` (`id`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES (3, 'Jarkko', 'Laine', '2016-05-10 09:54:20', '2016-05-10 09:54:20')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `directors` (`id`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES (4, 'Christian', 'Hellsten', '2016-05-10 09:54:20', '2016-05-10 09:54:20')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `directors` (`id`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES (5, 'Leo', 'Tolstoy', '2016-05-10 09:54:20', '2016-05-10 09:54:20')
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM `directors_films`[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (1, 1)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (2, 2)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (2, 3)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (2, 4)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (2, 5)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (2, 6)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (2, 7)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (3, 8)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (4, 9)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `directors_films` (`director_id`, `film_id`) VALUES (5, 10)[0m
+  [1m[35m (3.1ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------
+UserTest: test_user_account
+---------------------------
+Started GET "/user/new" for 127.0.0.1 at 2016-05-10 11:54:20 +0200
+Processing by UserController#new as HTML
+ApplicationController::current_user
+ApplicationController::current_user_session
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `users`[0m
+  Rendered user/_form.html.erb (14.2ms)
+  Rendered user/new.html.erb within layouts/application (20.2ms)
+ApplicationController::current_user
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `users`
+Completed 200 OK in 80ms (Views: 42.6ms | ActiveRecord: 1.4ms)
+Started POST "/user/create" for 127.0.0.1 at 2016-05-10 11:54:20 +0200
+Processing by UserController#create as HTML
+  Parameters: {"user"=>{"name"=>"George Smith", "login"=>"george", "email"=>"george@emporium.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'george@emporium.com' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`login` = 'george' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`persistence_token` = BINARY 'b0265c7d394a3391e30915d305d58cdb8af1968594799cf6a251278645f02c6aabb5f9ab94064ed7009c4336b0c93a5db0f6b0b52abf940aac54ec2effd91238' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`name` = BINARY 'George Smith' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`login` = BINARY 'george' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = BINARY 'george@emporium.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`created_at`, `crypted_password`, `current_login_at`, `current_login_ip`, `email`, `last_request_at`, `login`, `login_count`, `name`, `password_salt`, `perishable_token`, `persistence_token`, `updated_at`) VALUES ('2016-05-10 09:54:20', 'd992497d0ea9d0f78a03676b8fd664c661579d27b0a672ab203adfdaced0eb52a8d3143b96c99d395bfc6d02a4def0874b025570b22d7d820aa83dd7730e7a62', '2016-05-10 09:54:20', '127.0.0.1', 'george@emporium.com', '2016-05-10 09:54:20', 'george', 1, 'George Smith', 'dNhIsdB60NNzemZdQIZS', 'qvAIxkE6iW9SLousK5fB', 'b0265c7d394a3391e30915d305d58cdb8af1968594799cf6a251278645f02c6aabb5f9ab94064ed7009c4336b0c93a5db0f6b0b52abf940aac54ec2effd91238', '2016-05-10 09:54:20')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/user/show
+Completed 302 Found in 21ms (ActiveRecord: 1.7ms)
+Started GET "/user/show" for 127.0.0.1 at 2016-05-10 11:54:20 +0200
+Processing by UserController#show as HTML
+ApplicationController::require_user
+ApplicationController::current_user
+ApplicationController::current_user_session
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`persistence_token` = 'b0265c7d394a3391e30915d305d58cdb8af1968594799cf6a251278645f02c6aabb5f9ab94064ed7009c4336b0c93a5db0f6b0b52abf940aac54ec2effd91238' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE `users` SET `last_request_at` = '2016-05-10 09:54:20', `perishable_token` = 'FWzK0Q8jj2RFsvtydd9P', `updated_at` = '2016-05-10 09:54:20' WHERE `users`.`id` = 8
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+ApplicationController::current_user_session
+ApplicationController::current_user
+  Rendered user/show.html.erb within layouts/application (1.5ms)
+ApplicationController::current_user
+ApplicationController::current_user
+Completed 200 OK in 12ms (Views: 3.5ms | ActiveRecord: 0.7ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`login` = 'george' LIMIT 1
+Started GET "/user/show/?id=8" for 127.0.0.1 at 2016-05-10 11:54:20 +0200
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"8"}
+ApplicationController::require_user
+ApplicationController::current_user
+ApplicationController::current_user_session
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`persistence_token` = 'b0265c7d394a3391e30915d305d58cdb8af1968594799cf6a251278645f02c6aabb5f9ab94064ed7009c4336b0c93a5db0f6b0b52abf940aac54ec2effd91238' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2016-05-10 09:54:20', `perishable_token` = 'Rqb9eKDiwsumUcaw3kJi', `updated_at` = '2016-05-10 09:54:20' WHERE `users`.`id` = 8[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+ApplicationController::current_user_session
+ApplicationController::current_user
+  Rendered user/show.html.erb within layouts/application (0.5ms)
+ApplicationController::current_user
+ApplicationController::current_user
+Completed 200 OK in 7ms (Views: 1.9ms | ActiveRecord: 0.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 8 LIMIT 1[0m
+Started GET "/user/edit?id=8" for 127.0.0.1 at 2016-05-10 11:54:21 +0200
+Processing by UserController#edit as HTML
+  Parameters: {"id"=>"8"}
+ApplicationController::require_user
+ApplicationController::current_user
+ApplicationController::current_user_session
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`persistence_token` = 'b0265c7d394a3391e30915d305d58cdb8af1968594799cf6a251278645f02c6aabb5f9ab94064ed7009c4336b0c93a5db0f6b0b52abf940aac54ec2effd91238' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `last_request_at` = '2016-05-10 09:54:21', `perishable_token` = 'Tol2PTvzpAQ0gJeBdkYS', `updated_at` = '2016-05-10 09:54:21' WHERE `users`.`id` = 8
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+ApplicationController::current_user_session
+ApplicationController::current_user
+  Rendered user/_form.html.erb (0.7ms)
+  Rendered user/edit.html.erb within layouts/application (2.3ms)
+ApplicationController::current_user
+ApplicationController::current_user
+Completed 200 OK in 9ms (Views: 4.1ms | ActiveRecord: 0.8ms)
+Started POST "/user/update" for 127.0.0.1 at 2016-05-10 11:54:21 +0200
+Processing by UserController#update as HTML
+  Parameters: {"user"=>{"name"=>"George Jackson", "login"=>"george", "email"=>"george@emporium.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+ApplicationController::require_user
+ApplicationController::current_user
+ApplicationController::current_user_session
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`persistence_token` = 'b0265c7d394a3391e30915d305d58cdb8af1968594799cf6a251278645f02c6aabb5f9ab94064ed7009c4336b0c93a5db0f6b0b52abf940aac54ec2effd91238' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE `users` SET `last_request_at` = '2016-05-10 09:54:21', `perishable_token` = 'N0MeIs105QXGZYdHnv', `updated_at` = '2016-05-10 09:54:21' WHERE `users`.`id` = 8
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+ApplicationController::current_user_session
+ApplicationController::current_user
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE (`users`.`persistence_token` = BINARY 'bf70ca7ea87566c93e2d521e84640ff2d31c74f6aa8e64278050c2307d15312785c950526473486b7c6698e880b92633d237563a4dba930dc0f36b40c48fcd28' AND `users`.`id` != 8) LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users`  WHERE (`users`.`name` = BINARY 'George Jackson' AND `users`.`id` != 8) LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE (`users`.`login` = BINARY 'george' AND `users`.`id` != 8) LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users`  WHERE (`users`.`email` = BINARY 'george@emporium.com' AND `users`.`id` != 8) LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`persistence_token` = 'b0265c7d394a3391e30915d305d58cdb8af1968594799cf6a251278645f02c6aabb5f9ab94064ed7009c4336b0c93a5db0f6b0b52abf940aac54ec2effd91238' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE `users` SET `crypted_password` = '94fd192a69b0cb6e05b7aa48446537547eca44fa26fec3e745fda8a7fc9af5b3491c02ac17b18dca023b3970efc5787a9c3f52e0d8027efb815f3fa2364e6e08', `current_login_at` = '2016-05-10 09:54:21', `last_login_at` = '2016-05-10 09:54:20', `last_login_ip` = '127.0.0.1', `last_request_at` = '2016-05-10 09:54:21', `login_count` = 2, `name` = 'George Jackson', `password_salt` = 'zMCgaMdmOnvOcFNbACBi', `perishable_token` = 'urVs9kl5WUvMcLHq8U', `persistence_token` = 'bf70ca7ea87566c93e2d521e84640ff2d31c74f6aa8e64278050c2307d15312785c950526473486b7c6698e880b92633d237563a4dba930dc0f36b40c48fcd28', `updated_at` = '2016-05-10 09:54:21' WHERE `users`.`id` = 8
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/user/show
+Completed 302 Found in 14ms (ActiveRecord: 2.3ms)
+Started GET "/user/show" for 127.0.0.1 at 2016-05-10 11:54:21 +0200
+Processing by UserController#show as HTML
+ApplicationController::require_user
+ApplicationController::current_user
+ApplicationController::current_user_session
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 8 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `last_request_at` = '2016-05-10 09:54:21', `perishable_token` = 'Ph9xgXfyEWqebUeVM7QN', `updated_at` = '2016-05-10 09:54:21' WHERE `users`.`id` = 8
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+ApplicationController::current_user_session
+ApplicationController::current_user
+  Rendered user/show.html.erb within layouts/application (0.6ms)
+ApplicationController::current_user
+ApplicationController::current_user
+Completed 200 OK in 7ms (Views: 2.0ms | ActiveRecord: 1.0ms)
+  [1m[35m (5.4ms)[0m  ROLLBACK

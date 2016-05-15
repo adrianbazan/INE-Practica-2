@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
     logger.debug "ApplicationController::require_user"
     unless current_user
       store_location
-      flash[:notice] = "You must be logged in to access this page."
+      flash[:notice] = "Debes de estar con la sesión iniciada para visualizar esta página."
       redirect_to :controller => '/user_sessions', :action => 'new'
       return false
     end
@@ -42,7 +42,7 @@ class ApplicationController < ActionController::Base
     logger.debug "ApplicationController::require_no_user"
     if current_user
       store_location
-      flash[:notice] = "You must be logged out to access this page."
+      flash[:notice] = "No debes de estar con la sesión iniciada para visualizar esta página."
       redirect_to :controller => 'about', :action => :index
       return false
     end
