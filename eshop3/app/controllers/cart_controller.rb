@@ -21,23 +21,35 @@ class CartController < ApplicationController
   def remove
     @film = Film.find params[:id]
     @page_title = 'Eliminar item'
-    if request.post?
-      @item = @cart.remove params[:id]
-      flash[:cart_notice] = "Eliminado 1 <em>#{@item.film.title}</em>."
-      redirect_to :controller => 'catalog'
-    else
-      render :controller => 'cart', :action => 'remove'
+    respond_to do |format|
+	format.js{  @item=@cart.remove params[:id]
+		    flash.now[:cart_notice]="Eiminado 1 <em>#{@item.film.title}</em>."
+		    render:controller=>'cart', :action=>'remove_with_ajax'}
+	format.html{    
+		    if request.post?
+		      @item = @cart.remove params[:id]
+		      flash[:cart_notice] = "Eliminado 1 <em>#{@item.film.title}</em>."
+		      redirect_to :controller => 'catalog'
+		    else
+		      render :controller => 'cart', :action => 'remove'
+		    end}
     end
   end
 
   def clear
     @page_title = 'Vaciar carrito'
-    if request.post?
-      @cart.cart_items.destroy_all
-      flash[:cart_notice] = "Carrito vaciado.."
-      redirect_to :controller => 'catalog'
-    else
-      render :controller => 'cart', :action => 'clear'
+    respond_to do |format|
+	format.js{  @cart.cart_items.destroy_all
+		    flash.now[:cart_notice]="Carrito vaciado.."
+		    render:controller=>'cart', :action=>'clear_with_ajax'}
+	format.html{    
+		    if request.post?
+		      @cart.cart_items.destroy_all
+		      flash[:cart_notice] = "Carrito vaciado.."
+		      redirect_to :controller => 'catalog'
+		    else
+		      render :controller => 'cart', :action => 'clear'
+		    end}
     end
   end
 end
