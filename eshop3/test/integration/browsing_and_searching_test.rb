@@ -59,6 +59,17 @@ class BrowsingAndSearchingTestTest < ActionDispatch::IntegrationTest
         assert_tag :tag => 'dt', :content => a.title
       end
     end
+
+    def rss
+      get 'catalog/rss'
+      assert_response :success
+      assert_template 'catalog/rss'
+      assert_tag :tag => 'channel', :children => { :count => 5, :only => { :tag => 'item' } }
+      @films = Film.latest(5)
+      @films.each do |a|
+          assert_tag :tag => 'dt', :content => a.title
+      end
+    end
   end
 
   def new_session_as(name)
