@@ -12,10 +12,10 @@
     <h2 id="slogan">Films on Rails</h2>
     <% if current_user %>
       <p id="loginlogout">
-        Sesión iniciada como <%= current_user.login %>
+        Identificado como <%= current_user.login %>
         (<%= link_to "Editar cuenta", :controller => '/user', :action => :show %>)
         <br/>
-        (<%= link_to "Salir", :controller => '/user_sessions', :action => :destroy %>)
+        (<%= link_to "Cerrar sesión", :controller => '/user_sessions', :action => :destroy %>)
       </p>
     <% else %>
       <p id="loginlogout">

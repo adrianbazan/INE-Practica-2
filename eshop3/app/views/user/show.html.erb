@@ -8,14 +8,14 @@
   <dt>E-mail</dt>
   <dd><%= @user.email %></dd>
 
-  <dt>Nº de inicios</dt>
+  <dt>Nº de inicios de sesión</dt>
   <dd><%= @user.login_count %></dd>
 
-  <dt>Último intento</dt>
+  <dt>Última petición</dt>
   <dd><%= @user.last_request_at %></dd>
 
   <% if @user.last_login_at %>
-    <dt>Último inicio</dt>
+    <dt>Sesión anterior</dt>
     <dd><%= @user.last_login_at %></dd>
   <% end %>
 
@@ -23,11 +23,11 @@
   <dd><%= @user.current_login_at %></dd>
 
   <% if @user.last_login_ip %>
-    <dt>Última IP</dt>
+    <dt>IP de sesión anterior</dt>
     <dd><%= @user.last_login_ip %></dd>
   <% end %>
 
-  <dt>IP actual</dt>
+  <dt>IP de sesión actual</dt>
   <dd><%= @user.current_login_ip %></dd>
 </dl>
 
