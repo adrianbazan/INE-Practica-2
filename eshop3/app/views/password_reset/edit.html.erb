@@ -1,0 +1,18 @@
+<% if @user.errors.any? %>
+  <div id="errorExplanation">
+  <h2><%= pluralize(@user.errors.count, "error") %> impidió restaurar la contraseña:</h2>
+    <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<%end%>
+
+<%= form_tag :action => 'update' do %>
+	<p><label for="user_password">Contraseña:</label><br/>
+	<%= password_field :user, :password %></p>
+	<p><label for="user_password_confirmation">Repita la contraseña:</label><br />
+	<%= password_field :user, :password_confirmation %></p>
+	<p><%= submit_tag "Aceptar" %></p>
+<%end%>
