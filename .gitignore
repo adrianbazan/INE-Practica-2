@@ -3,5 +3,3 @@
 
 *.log
 *eshop/tmp/*
-
-*Gemfile.lock
