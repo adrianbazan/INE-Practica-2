@@ -1,0 +1,11 @@
+<dl>
+  <dt>Nombre</dt>
+  <dd><%= h @post.name %></dd>
+  <dt>Asunto</dt>
+  <dd><%= h @post.subject %></dd>
+  <dt>Post</dt>
+  <dd><%= h @post.body %></dd>
+</dl>
+
+<%= link_to 'Responder', :action => 'reply', :id => @post %> |
+<%= link_to 'Atras', :action => 'index' %>

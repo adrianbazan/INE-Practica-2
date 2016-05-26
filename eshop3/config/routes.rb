@@ -68,6 +68,13 @@ Rails.application.routes.draw do
   get 'user/edit'
   post 'user/update'
 
+  get 'forum/post'
+  post 'forum/create'
+  get 'forum/reply'
+  post 'forum/destroy'
+  get 'forum/show'
+  get 'forum/index'
+
   get 'password_reset/new'
   post 'password_reset/create'
   get 'password_reset/edit'
