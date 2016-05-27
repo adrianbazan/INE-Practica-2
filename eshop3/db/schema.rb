@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160510122949) do
+ActiveRecord::Schema.define(version: 20160524122950) do
 
   create_table "cart_items", force: true do |t|
     t.integer  "film_id"
@@ -61,6 +61,17 @@ ActiveRecord::Schema.define(version: 20160510122949) do
   end
 
   add_index "films", ["producer_id"], name: "fk_films_producers", using: :btree
+
+  create_table "forum_posts", force: true do |t|
+    t.string   "name",       limit: 50,             null: false
+    t.string   "subject",                           null: false
+    t.text     "body"
+    t.integer  "root_id",               default: 0, null: false
+    t.integer  "parent_id",             default: 0, null: false
+    t.integer  "depth",                 default: 0, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "order_items", force: true do |t|
     t.integer  "film_id"
