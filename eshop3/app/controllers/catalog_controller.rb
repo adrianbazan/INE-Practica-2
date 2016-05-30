@@ -16,6 +16,11 @@ class CatalogController < ApplicationController
     @films = Film.latest 5 # invoques "latest" method to get the five latest films
     @page_title = 'Últimas películas'
   end
+  
+  def tags
+    @films = Film.joins(:taggings).where 'tag_id LIKE ?', "%#{params[:id]}%"
+    @page_title = 'Catálogo de películas'
+  end
 
   def rss
     latest

@@ -51,6 +51,11 @@
 </div>
 
 <div class="field">
+  <p><label for="film_tags">Tags (Separado por comas)</label><br/>
+    <%= text_field 'film', 'tag_list' %></p>
+</div>
+
+<div class="field">
   <% if @film.cover_image.exists? then %>
     <dd><%= image_tag @film.cover_image.url %></dd>
   <% else %>

@@ -34,6 +34,7 @@ class Film < ActiveRecord::Base
   	validates_length_of :cod, :in => 1..3, message:"debe tener máximo 3 números"
 	validates_format_of :cod, :with => /[0-9]{3}/, message:"tiene un formato no válido"
 	validates_uniqueness_of :cod, message:"debe ser único"
+	acts_as_taggable
 
 	def director_names
 		self.directors.map{|director| director.name}.join(", ")

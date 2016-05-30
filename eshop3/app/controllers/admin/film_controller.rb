@@ -62,6 +62,6 @@ class Admin::FilmController < Admin::AuthenticatedController
 
     def film_params
       params.require(:film).permit(:title, :producer_id, :produced_at, { :director_ids => [] },
-                                   :cod, :blurb, :price, :duration, :cover_image)
+                                   :cod, :blurb, :price, :duration, :cover_image, :tag_list)
     end
 end

@@ -48,6 +48,7 @@ Rails.application.routes.draw do
   get 'catalog/latest'
   get 'catalog/rss'
   get 'catalog/search'
+  get 'catalog/tags'
 
   get 'cart/add'
   post 'cart/add'
@@ -74,6 +75,7 @@ Rails.application.routes.draw do
   post 'forum/destroy'
   get 'forum/show'
   get 'forum/index'
+
 
   get 'password_reset/new'
   post 'password_reset/create'

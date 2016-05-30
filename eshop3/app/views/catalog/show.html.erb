@@ -13,6 +13,10 @@
   <dd><%= @film.producer.name %></dd>
   <dt>Descripción</dt>
   <%= RedCloth.new(@film.blurb).to_html.html_safe if @film.blurb %>
+  <dt>Tags</dt>
+  <dd><%= raw @film.tags.map {
+        |t| link_to t.title, :action => 'tags', :id => t.id
+    }.join(', ') %></dd>
 </dl>
 
 <p><%= link_to 'Catálogo', :action => 'index' %> </p>

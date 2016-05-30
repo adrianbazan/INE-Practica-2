@@ -9,5 +9,8 @@
     <% end %>
     <dd><%= sprintf("%s. Precio: %.2f €", pluralize(film.duration, "minutos"), film.price) %> </dd>
     <dd><small>Productora: <%= film.producer.name %></small></dd>
+    <dd>Tags: <%= raw film.tags.map {
+         |t| link_to t.name, :action => 'tags', :id => t.id
+      }.join(', ') %></dd>
   <% end %>
 </dl>

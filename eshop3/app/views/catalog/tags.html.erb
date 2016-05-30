@@ -1,0 +1,18 @@
+<dl id = 'films'>
+  <% for film in @films %>
+      <dt>
+        <%= link_to film.title, :action => 'show', :id => film %>
+        <%= link_to '+', :controller => 'cart', :action => 'add', :id => film, :remote => true %>
+
+      </dt>
+      <% for director in film.directors %>
+          <dd><%= director.name %></dd>
+      <% end %>
+      <dd><%= sprintf("Precio: %.2f €", film.price) %> </dd>
+      <dd><small>Productora: <%= film.producer.name %></small></dd>
+      <dd>Tags: <%= raw film.tags.map {
+         |t| link_to t.name, :action => 'tags', "id" => t.id
+      }.join(', ') %></dd>
+  <% end %>
+</dl>
+
