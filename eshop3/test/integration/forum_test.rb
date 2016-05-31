@@ -77,7 +77,7 @@ class ForumTest < ActionDispatch::IntegrationTest
   		assert_response :success
   		assert_template 'forum/index'
   		assert_tag :tag => 'div', :attributes => { :id => "notice" },
-  		:content => "La cadena de posts '&#39;#{post.subject}&#39;' fue eliminada"
+  		:content => "La cadena de posts &#39;#{post.subject}&#39; fue eliminada"
   	end
   end
 
