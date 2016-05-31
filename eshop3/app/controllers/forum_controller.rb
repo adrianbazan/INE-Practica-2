@@ -3,7 +3,7 @@ class ForumController < ApplicationController
 
   def post
     @post = ForumPost.new(:parent_id => 0, :root_id => 0, :depth => 0)
-    @page_title = 'Postear Foro'
+    @page_title = 'Crear hilo'
   end
 
   def create
@@ -11,11 +11,11 @@ class ForumController < ApplicationController
     if @post.save
       @post.root_id = @post.id if @post.root_id == 0
       @post.save
-      flash[:notice] = 'Post fue creado'
+      flash[:notice] = 'Hilo fue creado'
       redirect_to :action => 'index'
     else
       if @post.parent_id == 0
-	@page_title = 'Postear Foro'
+	@page_title = 'Crear hilo'
       else
 	@page_title = "Responder a '#{ForumPost.find(@post.parent_id).subject}'"
       end
@@ -37,7 +37,7 @@ class ForumController < ApplicationController
     @posts.each do |post|
       post.destroy
     end
-    flash[:notice] = "La cadena de posts '#{@post.subject}' fue eliminada"
+    flash[:notice] = "El hilo '#{@post.subject}' fue eliminado"
     redirect_to :action => 'index'
   end
 

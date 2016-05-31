@@ -3,9 +3,9 @@
   <dd><%= h @post.name %></dd>
   <dt>Asunto</dt>
   <dd><%= h @post.subject %></dd>
-  <dt>Post</dt>
+  <dt>Mensaje</dt>
   <dd><%= h @post.body %></dd>
 </dl>
 
 <%= link_to 'Responder', :action => 'reply', :id => @post %> |
-<%= link_to 'Atras', :action => 'index' %>
+<%= link_to 'Atrás', :action => 'index' %>

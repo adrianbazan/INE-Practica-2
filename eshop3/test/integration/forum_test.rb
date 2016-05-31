@@ -46,7 +46,7 @@ class ForumTest < ActionDispatch::IntegrationTest
   		assert_response :success
   		assert_template 'forum/index'
   		assert_tag :tag => 'h1', :content => 'Foro'
-  		assert_tag :tag => 'a', :content => 'Nuevo post'
+  		assert_tag :tag => 'a', :content => 'Nuevo hilo'
   	end
 
   	def view_post(post)
@@ -77,7 +77,7 @@ class ForumTest < ActionDispatch::IntegrationTest
   		assert_response :success
   		assert_template 'forum/index'
   		assert_tag :tag => 'div', :attributes => { :id => "notice" },
-  		:content => "La cadena de posts &#39;#{post.subject}&#39; fue eliminada"
+  		:content => "El hilo &#39;#{post.subject}&#39; fue eliminado"
   	end
   end
 

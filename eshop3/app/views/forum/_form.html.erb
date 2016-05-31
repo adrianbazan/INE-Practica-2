@@ -1,6 +1,6 @@
 <% if @post.errors.any? %>
   <div id="errorExplanation">
-  <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post...</h2>
+  <h2><%= pluralize(@post.errors.count, "error") %> impidieron este hilo...</h2>
     <ul>
       <% @post.errors.full_messages.each do |msg| %>
 	<li><%= msg %></li>
@@ -32,6 +32,6 @@
 </div>
 
 <div class="field">
-  <p><label for="post_body">Post</label><br/>
+  <p><label for="post_body">Mensaje</label><br/>
   <%= text_area 'post', 'body' %></p>
 </div>
